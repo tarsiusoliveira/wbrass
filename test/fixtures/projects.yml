@@ -1,0 +1,33 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  temperature: 9.99
+  pressure: 9.99
+  humidity: 9.99
+  sampleRate: 1
+  idDuration: 9.99
+  maxReflections: 1
+  energyDecay: 1
+  numRays: 1
+  clusterOrder: 1
+  diffuseProcessing: 
+  saveLateRays: 
+  artificialTail: 
+  saveDiffuseRays: 
+  auralization: 
+
+two:
+  temperature: 9.99
+  pressure: 9.99
+  humidity: 9.99
+  sampleRate: 1
+  idDuration: 9.99
+  maxReflections: 1
+  energyDecay: 1
+  numRays: 1
+  clusterOrder: 1
+  diffuseProcessing: 
+  saveLateRays: 
+  artificialTail: 
+  saveDiffuseRays: 
+  auralization: 

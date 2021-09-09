@@ -1,0 +1,74 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Temperature:</strong>
+  <%= @project.temperature %>
+</p>
+
+<p>
+  <strong>Pressure:</strong>
+  <%= @project.pressure %>
+</p>
+
+<p>
+  <strong>Humidity:</strong>
+  <%= @project.humidity %>
+</p>
+
+<p>
+  <strong>Samplerate:</strong>
+  <%= @project.sampleRate %>
+</p>
+
+<p>
+  <strong>Irduration:</strong>
+  <%= @project.irDuration %>
+</p>
+
+<p>
+  <strong>Maxreflections:</strong>
+  <%= @project.maxReflections %>
+</p>
+
+<p>
+  <strong>Energydecay:</strong>
+  <%= @project.energyDecay %>
+</p>
+
+<p>
+  <strong>Numrays:</strong>
+  <%= @project.numRays %>
+</p>
+
+<p>
+  <strong>Clusterorder:</strong>
+  <%= @project.clusterOrder %>
+</p>
+
+<p>
+  <strong>Diffuseprocessing:</strong>
+  <%= @project.diffuseProcessing %>
+</p>
+
+<p>
+  <strong>Savelaterays:</strong>
+  <%= @project.saveLateRays %>
+</p>
+
+<p>
+  <strong>Artificialtail:</strong>
+  <%= @project.artificialTail %>
+</p>
+
+<p>
+  <strong>Savediffuserays:</strong>
+  <%= @project.saveDiffuseRays %>
+</p>
+
+<p>
+  <strong>Auralization:</strong>
+  <%= @project.auralization %>
+</p>
+
+<%= link_to 'Edit', edit_project_path(@project) %> |
+<%= link_to 'Back', projects_path %>

@@ -1,0 +1,71 @@
+<% if notice %>
+  <aside id="notice"><%= notice %></aside>
+<% end %>
+
+<h1>Projects</h1>
+
+<!-- <table>
+  <thead>
+    <tr>
+      <th>Temperature</th>
+      <th>Pressure</th>
+      <th>Humidity</th>
+      <th>Samplerate</th>
+      <th>Irduration</th>
+      <th>Maxreflections</th>
+      <th>Energydecay</th>
+      <th>Numrays</th>
+      <th>Clusterorder</th>
+      <th>Diffuseprocessing</th>
+      <th>Savelaterays</th>
+      <th>Artificialtail</th>
+      <th>Savediffuserays</th>
+      <th>Auralization</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead> -->
+<table>
+  <tfoot>
+    <tr>
+      <td colspan="3">
+        <%= link_to 'New Project', new_project_path %>
+      </td>
+    </tr>
+  </tfoot>
+
+
+  <tbody>
+    <% @projects.each do |project| %>
+      <tr class="<%= cycle('list_line_odd', 'list_line_even') %>">
+        <td class="project_details">
+          <h3>
+              <ul>
+                <li>Temperature (C): <%= project.temperature %></li>
+                <li>Pressure (atm): <%= project.pressure %></li>
+                <li>Humidity (%): <%= project.humidity %></li>
+                <li>Sample Rate (Hz): <%= project.sampleRate %></li>
+                <li>IR Duration (s): <%= project.irDuration %></li>
+                <li>Max. Reflections: <%= project.maxReflections %></li>
+                <li>Energy Decay (dB): <%= project.energyDecay %></li>
+                <li>Number od Rays: <%= project.numRays %></li>
+                <li>Cluster Order: <%= project.clusterOrder %></li>
+                <li>Diffuse Processing: <%= project.diffuseProcessing %></li>
+                <li>Save Late Rays: <%= project.saveLateRays %></li>
+                <li>Artificial Tail: <%= project.artificialTail %></li>
+                <li>Save DIffuse Rays: <%= project.saveDiffuseRays %></li>
+                <li>Auralization: <%= project.auralization %></li>
+            </ul>
+          </h3>
+        </td>
+
+        <td class="actions">
+          <ul>
+            <li><%= link_to 'Show', project %></li>
+            <li><%= link_to 'Edit', edit_project_path(project) %></li>
+            <li><%= link_to 'Destroy', project, method: :delete, data: { confirm: 'Are you sure?' } %></li>
+          </ul>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

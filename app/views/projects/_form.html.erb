@@ -1,0 +1,87 @@
+<%= form_with(model: project) do |form| %>
+  <% if project.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(project.errors.count, "error") %> prohibited this project from being saved:</h2>
+
+      <ul>
+        <% project.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :temperature %>
+    <%= form.text_field :temperature %>
+  </div>
+
+  <div class="field">
+    <%= form.label :pressure %>
+    <%= form.text_field :pressure %>
+  </div>
+
+  <div class="field">
+    <%= form.label :humidity %>
+    <%= form.text_field :humidity %>
+  </div>
+
+  <div class="field">
+    <%= form.label :sampleRate %>
+    <%= form.number_field :sampleRate %>
+  </div>
+
+  <div class="field">
+    <%= form.label :irDuration %>
+    <%= form.text_field :irDuration %>
+  </div>
+
+  <div class="field">
+    <%= form.label :maxReflections %>
+    <%= form.number_field :maxReflections %>
+  </div>
+
+  <div class="field">
+    <%= form.label :energyDecay %>
+    <%= form.number_field :energyDecay %>
+  </div>
+
+  <div class="field">
+    <%= form.label :numRays %>
+    <%= form.number_field :numRays %>
+  </div>
+
+  <div class="field">
+    <%= form.label :clusterOrder %>
+    <%= form.number_field :clusterOrder %>
+  </div>
+
+  <div class="checkbox">
+    <%= form.label :diffuseProcessing %>
+    <%= form.check_box :diffuseProcessing %>
+  </div>
+
+  <div class="checkbox">
+    <%= form.label :saveLateRays %>
+    <%= form.check_box :saveLateRays %>
+  </div>
+
+  <div class="checkbox">
+    <%= form.label :artificialTail %>
+    <%= form.check_box :artificialTail %>
+  </div>
+
+  <div class="checkbox">
+    <%= form.label :saveDiffuseRays %>
+    <%= form.check_box :saveDiffuseRays %>
+  </div>
+
+  <div class="checkbox">
+    <%= form.label :auralization %>
+    <%= form.check_box :auralization %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
