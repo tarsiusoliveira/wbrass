@@ -13,6 +13,20 @@ class ProjectsController < ApplicationController
   # GET /projects/new
   def new
     @project = Project.new
+    @project.temperature ||= 36.0
+    @project.pressure ||= 1
+    @project.humidity ||= 40.0
+    @project.sampleRate ||= 44100
+    @project.irDuration ||= 3.0
+    @project.maxReflections ||= 50
+    @project.energyDecay ||= -60
+    @project.numRays ||= 10000
+    @project.clusterOrder ||= 3
+    @project.diffuseProcessing ||= false
+    @project.saveLateRays ||= false
+    @project.artificialTail ||= true
+    @project.saveDiffuseRays ||= false
+    @project.auralization ||= false
   end
 
   # GET /projects/1/edit

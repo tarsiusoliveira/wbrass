@@ -17,7 +17,7 @@ class ProjectsControllerTest < ActionDispatch::IntegrationTest
 
   test "should create project" do
     assert_difference('Project.count') do
-      post projects_url, params: { project: { artificialTail: @project.artificialTail, auralization: @project.auralization, clusterOrder: @project.clusterOrder, diffuseProcessing: @project.diffuseProcessing, energyDecay: @project.energyDecay, humidity: @project.humidity, idDuration: @project.idDuration, maxReflections: @project.maxReflections, numRays: @project.numRays, pressure: @project.pressure, sampleRate: @project.sampleRate, saveDiffuseRays: @project.saveDiffuseRays, saveLateRays: @project.saveLateRays, temperature: @project.temperature } }
+      post projects_url, params: { project: { artificialTail: @project.artificialTail, auralization: @project.auralization, clusterOrder: @project.clusterOrder, diffuseProcessing: @project.diffuseProcessing, energyDecay: @project.energyDecay, humidity: @project.humidity, irDuration: @project.irDuration, maxReflections: @project.maxReflections, numRays: @project.numRays, pressure: @project.pressure, sampleRate: @project.sampleRate, saveDiffuseRays: @project.saveDiffuseRays, saveLateRays: @project.saveLateRays, temperature: @project.temperature } }
     end
 
     assert_redirected_to project_url(Project.last)
@@ -34,7 +34,7 @@ class ProjectsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update project" do
-    patch project_url(@project), params: { project: { artificialTail: @project.artificialTail, auralization: @project.auralization, clusterOrder: @project.clusterOrder, diffuseProcessing: @project.diffuseProcessing, energyDecay: @project.energyDecay, humidity: @project.humidity, idDuration: @project.idDuration, maxReflections: @project.maxReflections, numRays: @project.numRays, pressure: @project.pressure, sampleRate: @project.sampleRate, saveDiffuseRays: @project.saveDiffuseRays, saveLateRays: @project.saveLateRays, temperature: @project.temperature } }
+    patch project_url(@project), params: { project: { artificialTail: @project.artificialTail, auralization: @project.auralization, clusterOrder: @project.clusterOrder, diffuseProcessing: @project.diffuseProcessing, energyDecay: @project.energyDecay, humidity: @project.humidity, irDuration: @project.irDuration, maxReflections: @project.maxReflections, numRays: @project.numRays, pressure: @project.pressure, sampleRate: @project.sampleRate, saveDiffuseRays: @project.saveDiffuseRays, saveLateRays: @project.saveLateRays, temperature: @project.temperature } }
     assert_redirected_to project_url(@project)
   end
 

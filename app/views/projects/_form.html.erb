@@ -11,73 +11,91 @@
     </div>
   <% end %>
 
+  <p>
+    <h3>
+        Environment Setup:
+    </h3>
+  </p>
+
   <div class="field">
-    <%= form.label :temperature %>
+    <%= form.label :temperature, 'Temperature (C): ' %>
     <%= form.text_field :temperature %>
   </div>
 
   <div class="field">
-    <%= form.label :pressure %>
+    <%= form.label :pressure, 'Pressure (atm):' %>
     <%= form.text_field :pressure %>
   </div>
 
   <div class="field">
-    <%= form.label :humidity %>
+    <%= form.label :humidity, 'Humidity (%):' %>
     <%= form.text_field :humidity %>
   </div>
 
+  <p>
+    <h3>
+        Raytracing Stop Criteria:
+    </h3>
+  </p>
+
   <div class="field">
-    <%= form.label :sampleRate %>
+    <%= form.label :sampleRate, 'Sample Rate (Hz):' %>
     <%= form.number_field :sampleRate %>
   </div>
 
   <div class="field">
-    <%= form.label :irDuration %>
+    <%= form.label :irDuration, 'IR Duration (s):' %>
     <%= form.text_field :irDuration %>
   </div>
 
   <div class="field">
-    <%= form.label :maxReflections %>
+    <%= form.label :maxReflections, 'Max. Reflections:' %>
     <%= form.number_field :maxReflections %>
   </div>
 
   <div class="field">
-    <%= form.label :energyDecay %>
+    <%= form.label :energyDecay, 'Energy Decay (dB):' %>
     <%= form.number_field :energyDecay %>
   </div>
 
   <div class="field">
-    <%= form.label :numRays %>
+    <%= form.label :numRays, 'Number of Rays:' %>
     <%= form.number_field :numRays %>
   </div>
 
   <div class="field">
-    <%= form.label :clusterOrder %>
+    <%= form.label :clusterOrder, 'Cluster Order:' %>
     <%= form.number_field :clusterOrder %>
   </div>
 
+  <p>
+    <h3>
+        General Options:
+    </h3>
+  </p>
+
   <div class="checkbox">
-    <%= form.label :diffuseProcessing %>
+    <%= form.label :diffuseProcessing, 'Diffuse Processing?' %>
     <%= form.check_box :diffuseProcessing %>
   </div>
 
   <div class="checkbox">
-    <%= form.label :saveLateRays %>
+    <%= form.label :saveLateRays, 'Save Late Rays?' %>
     <%= form.check_box :saveLateRays %>
   </div>
 
   <div class="checkbox">
-    <%= form.label :artificialTail %>
+    <%= form.label :artificialTail, 'Artificial Tail?' %>
     <%= form.check_box :artificialTail %>
   </div>
 
   <div class="checkbox">
-    <%= form.label :saveDiffuseRays %>
+    <%= form.label :saveDiffuseRays, 'Save Diffuse Rays?' %>
     <%= form.check_box :saveDiffuseRays %>
   </div>
 
   <div class="checkbox">
-    <%= form.label :auralization %>
+    <%= form.label :auralization, 'Auralization?' %>
     <%= form.check_box :auralization %>
   </div>
 

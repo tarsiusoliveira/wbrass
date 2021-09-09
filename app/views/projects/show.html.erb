@@ -1,67 +1,85 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Temperature:</strong>
+  <h2>
+    Environment Setup
+  </h2>
+</p>
+
+<p>
+  <strong>Temperature (C):</strong>
   <%= @project.temperature %>
 </p>
 
 <p>
-  <strong>Pressure:</strong>
+  <strong>Pressure (atm):</strong>
   <%= @project.pressure %>
 </p>
 
 <p>
-  <strong>Humidity:</strong>
+  <strong>Humidity (%):</strong>
   <%= @project.humidity %>
 </p>
 
 <p>
-  <strong>Samplerate:</strong>
+  <h2>
+    Raytracing Stop Criteria
+  </h2>
+</p>
+
+<p>
+  <strong>Samplerate (Hz):</strong>
   <%= @project.sampleRate %>
 </p>
 
 <p>
-  <strong>Irduration:</strong>
+  <strong>IR Duration (s):</strong>
   <%= @project.irDuration %>
 </p>
 
 <p>
-  <strong>Maxreflections:</strong>
+  <strong>Max. Reflections:</strong>
   <%= @project.maxReflections %>
 </p>
 
 <p>
-  <strong>Energydecay:</strong>
+  <strong>Energy Decay (dB):</strong>
   <%= @project.energyDecay %>
 </p>
 
 <p>
-  <strong>Numrays:</strong>
+  <strong>Number of Rays:</strong>
   <%= @project.numRays %>
 </p>
 
 <p>
-  <strong>Clusterorder:</strong>
+  <strong>Cluster Order:</strong>
   <%= @project.clusterOrder %>
 </p>
 
 <p>
-  <strong>Diffuseprocessing:</strong>
+  <h2>
+    General Options
+  </h2>
+</p>
+
+<p>
+  <strong>Diffuse Processing (slow):</strong>
   <%= @project.diffuseProcessing %>
 </p>
 
 <p>
-  <strong>Savelaterays:</strong>
+  <strong>Save Late Rays:</strong>
   <%= @project.saveLateRays %>
 </p>
 
 <p>
-  <strong>Artificialtail:</strong>
+  <strong>Artificial Tail:</strong>
   <%= @project.artificialTail %>
 </p>
 
 <p>
-  <strong>Savediffuserays:</strong>
+  <strong>Save Diffuse Rays:</strong>
   <%= @project.saveDiffuseRays %>
 </p>
 
