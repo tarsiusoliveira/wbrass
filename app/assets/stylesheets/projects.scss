@@ -1,6 +1,8 @@
 // Place all the styles related to the Projects controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+body {margin:0;}
+
 .projects {
   margin: 0;
   padding: 0.5em;
@@ -19,21 +21,6 @@
   tr.list_line_odd {
     background-color: #effeef;
   }
-
-  // td.image {
-  //   // Hide this on mobile devices
-  //   display: none;
-  //
-  //   // Assume anything bigger than 30em
-  //   // is a non-mobile device and can
-  //   // fit the image.
-  //   @media (min-width: 30em) {
-  //     display: block;
-  //     img {
-  //       height: 11.3em;
-  //     }
-  //   }
-  // }
 
   td.project_details {
     h1 {
@@ -56,4 +43,38 @@
       padding: 0.5em 0;
     }
   }
-}
+}
+
+
+/* The navigation bar */
+.navbar {
+  overflow: hidden;
+  background-color: #088532;
+  position: fixed; /* Set the navbar to fixed position */
+  top: 0; /* Position the navbar at the top of the page */
+  width: 100%; /* Full width */
+}
+
+/* Links inside the navbar */
+.navbar a {
+  float: left;
+  display: block;
+  color: #ffffff;
+  height: 20px;
+  line-height: 20px;
+  text-align: center;
+  vertical-align: center;
+  padding: 10px 16px;
+  text-decoration: none;
+}
+
+/* Change background on mouse-over */
+.navbar a:hover {
+  background: #fff;
+  color: black;
+}
+
+/* Main content */
+.main {
+  margin-top: 20px; /* Add a top margin to avoid content overlay */
+}
