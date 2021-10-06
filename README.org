@@ -1,7 +1,6 @@
 #+TITLE: Desenvolvimento de interface WEB para simulação acústica e audibilização de recintos
 #+AUTHOR: Tarsius Sergio Malafaia de Souza Oliveira
-#+STARTUP: Simulação acústica, que será realizada através do desenvolvimento de uma plataforma WEB capaz
-de fazer a interface entre o cliente e um simulador em desenvolvimento na UFRJ, o BRASS.
+#+STARTUP: Simulação acústica, que será realizada através do desenvolvimento de uma plataforma WEB capaz de fazer a interface entre o cliente e um simulador em desenvolvimento na UFRJ, o BRASS.
 #+CATEGORY: @UFRJ
 
 
