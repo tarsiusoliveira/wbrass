@@ -1,0 +1,39 @@
+#+TITLE: Desenvolvimento de interface WEB para simulação acústica e audibilização de recintos
+#+AUTHOR: Tarsius Sergio Malafaia de Souza Oliveira
+#+STARTUP: Simulação acústica, que será realizada através do desenvolvimento de uma plataforma WEB capaz
+de fazer a interface entre o cliente e um simulador em desenvolvimento na UFRJ, o BRASS.
+#+CATEGORY: @UFRJ
+
+
+* TCC
+
+O projeto consiste em desenvolver uma plataforma WEB onde o usuário possa criar e modificar um modelo de ambiente fechado,
+inserir dados de variáveis pertinentes ao processamento acústico, inserir fontes e receptores de sinais acústicos,
+utilizar o BRASS, desenvolvido na UFRJ, e devolver ao usuário dados que mostram o comportamento acústico do
+ambiente e tocar os arquivos de áudios resultantes da simulação (audibilização).
+
+** TODO [/] Criar o projeto
+    - [ ] rails new
+    - [ ] adiciona no git
+    - [ ] mandar para o github
+** TODO [/] Criação do cenário lendo do arquivo exportado do Autocad
+    - [ ] Determinar as tabelas dos dados a serem estruturados
+    - [ ] Leitura do arquivo dxf e obtenção dos dados das layers (planos, fontes e receptores)
+    - [ ] Escrita dos dados lidos nas tabelas definidas
+    - [ ] Escolha dos materiais (pré-definidos na tabela) de cada layer
+    - [ ] Atribuição dos arquivos de audibilização para cada fonte (se houver)
+    - [ ] Criação do txt (wBrass -> BRASS)
+    - [ ] Envio dos arquivos para o servidor
+** TODO [/] Comunicação com o programa do Professor (BRASS)
+    - [ ] Colocar o programa num servidor
+    - [ ] Configuração do programa para leitura dos arquivos de chegada
+    - [ ] Envio do txt principal e arquivos de audibilização (caso hajam)
+    - [ ] Execução do BRASS nos arquivos de entrada
+    - [ ] Envio do txt de saída (BRASS -> wBrass) e arquivos de audibilização (caso hajam)
+** TODO [/] Exibição dos gráficos de resposta em tempo/frequência
+    - [ ] Recepção dos arquivos do servidor
+    - [ ] Leitura dos dados e atribuição nas tabelas corretas
+    - [ ] Interface de escolha das fontes e receptores a serem plotados
+    - [ ] Plot do gráfico
+    - [ ] Escolha das fontes e receptores a serem ouvidos (audibilização)
+    - [ ] Player/Download dos áudios escolhidos
