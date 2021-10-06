@@ -15,6 +15,7 @@ ambiente e tocar os arquivos de áudios resultantes da simulação (audibilizaç
     - [ X ] rails new
     - [ X ] adiciona no git
     - [ X ] mandar para o github
+    
 ** TODO [/] Criação do cenário lendo do arquivo exportado do Autocad
     - [ ] Determinar as tabelas dos dados a serem estruturados
     - [ ] Leitura do arquivo dxf e obtenção dos dados das layers (planos, fontes e receptores)
