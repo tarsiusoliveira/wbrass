@@ -27,6 +27,7 @@ class ProjectsController < ApplicationController
     @project.artificialTail ||= true
     @project.saveDiffuseRays ||= false
     @project.auralization ||= false
+    @project.autocad_file.attach(params[:autocad_file])
   end
 
   # GET /projects/1/edit
@@ -78,6 +79,8 @@ class ProjectsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def project_params
-      params.require(:project).permit(:temperature, :pressure, :humidity, :sampleRate, :irDuration, :maxReflections, :energyDecay, :numRays, :clusterOrder, :diffuseProcessing, :saveLateRays, :artificialTail, :saveDiffuseRays, :auralization)
+      params.require(:project).permit(:temperature, :pressure, :humidity, :sampleRate,
+        :irDuration, :maxReflections, :energyDecay, :numRays, :clusterOrder, :diffuseProcessing,
+        :saveLateRays, :artificialTail, :saveDiffuseRays, :auralization, :autocad_file)
     end
 end

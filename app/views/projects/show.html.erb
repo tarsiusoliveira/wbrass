@@ -88,5 +88,10 @@
   <%= @project.auralization %>
 </p>
 
+<p>
+  <strong>AutoCad File Name:</strong>
+  <%= @project.autocad_file.filename %>
+</p>
+
 <%= link_to 'Edit', edit_project_path(@project) %> |
 <%= link_to 'Back', projects_path %>
