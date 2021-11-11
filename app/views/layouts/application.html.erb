@@ -1,30 +1,30 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Wbrass</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
+<head>
+  <title>Wbrass</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
-    <!-- <style>
+  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  <!-- <style>
 
-    </style> -->
-  </head>
+</style> -->
+</head>
 
-  <body>
-    <div class="navbar">
-      <a href="#home"><%= image_tag 'wbrass_logo.jpeg', alt: 'wBRASS', width:65, align:'top' %></a>
-      <a href="projects">Projects</a>
-      <a href="#results">Results</a>
-      <a href="#contact">Contact</a>
+<body>
+  <div class="navbar">
+    <a href="#home"><%= image_tag 'wbrass_logo.jpeg', alt: 'wBRASS', width:65, align:'top' %></a>
+    <a href="projects">Projects</a>
+    <a href="#results">Results</a>
+    <a href="#contact">Contact</a>
+  </div>
+
+  <div class="main">
+    <div class='<%= controller.controller_name %>'>
+      <%= yield %>
     </div>
-
-    <div class="main">
-      <div class='<%= controller.controller_name %>'>
-        <%= yield %>
-      </div>
-    </div>
-  </body>
+  </div>
+</body>
 </html>
