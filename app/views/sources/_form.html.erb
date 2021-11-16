@@ -1,0 +1,57 @@
+<%= form_with(model: source) do |form| %>
+  <% if source.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(source.errors.count, "error") %> prohibited this source from being saved:</h2>
+
+      <ul>
+        <% source.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :x %>
+    <%= form.text_field :x %>
+  </div>
+
+  <div class="field">
+    <%= form.label :y %>
+    <%= form.text_field :y %>
+  </div>
+
+  <div class="field">
+    <%= form.label :z %>
+    <%= form.text_field :z %>
+  </div>
+
+  <div class="field">
+    <%= form.label :numRays %>
+    <%= form.number_field :numRays %>
+  </div>
+
+  <div class="field">
+    <%= form.label :rotAz %>
+    <%= form.text_field :rotAz %>
+  </div>
+
+  <div class="field">
+    <%= form.label :rotEl %>
+    <%= form.text_field :rotEl %>
+  </div>
+
+  <div class="field">
+    <%= form.label :spl1m %>
+    <%= form.number_field :spl1m %>
+  </div>
+
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

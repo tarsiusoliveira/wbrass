@@ -1,0 +1,53 @@
+ENVIRONMENT
+
+SIMULATION
+
+LAYERS::SOURCE
+		1. Nome
+		2. Direcionalidade (Daff ou interno)
+		3. Potência (dB)
+		4-12. Ganho/Atenuação por banda - 9 bandas (62,125,250,500,1k,2k,4k,8k,16k)
+
+SOURCES (1 a 3 pelo cad OU POR INPUT, 4 a 9 por input)
+    1. X
+    2. Y
+    3. Z
+    4. Núm de raios da fonte - PADRAO 20.000
+    5. Rotação Azim.
+    6. Rotação Elev.
+    7. SPL_1m (94 é o padrão)
+    8. Nome da LAYERS::SOURCE (selecionável da lista de layers de fontes)
+    9. Arquivo WAV (caso haja auralização)
+
+LAYERS::RECEIVER
+		1. Nome
+		2. Direcionalidade (Daff ou interno)
+
+RECEIVERS (1 a 3 pelo cad OU POR INPUT, 4 a 6 por input)
+    1. X
+    2. Y
+    3. Z
+    4. Raio de recepção
+    5. Rotação
+    6. Nome da LAYERS::RECEIVER (selecionável da lista de LAYERS DE RECEPTORES)
+
+MATERIALS
+    1. Nome
+    2-10. Coef de absorção (9 bandas: 62,125,250,500,1k,2k,4k,8k,16k)
+    11. Coef de espalhamento
+
+LAYERS::PLANES
+		1. Nome do plano
+		2. MATERIALS (Selecionável apenas da lista de materiais)
+
+LAYERS::COLOR ( os 3 valores de cor RGB podem ser informados nas propriedades da LAYER de PLANOS após o material, alternativamente)
+    1. Nome da LAYER do plano
+    2. Red
+    3. Green
+    4. Blue
+
+PLANES
+		1. Quantidade de vértices (n)
+		2-4. XYZ 1
+		n-m. XYZ n
+		m+1. Nome do plano do LAYERS::PLANES (selecionável da lista de layers de planos)

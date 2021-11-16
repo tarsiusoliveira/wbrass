@@ -1,0 +1,21 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  x: 9.99
+  'y': 9.99
+  z: 9.99
+  numRays: 1
+  rotAz: 9.99
+  rotEl: 9.99
+  spl1m: 1
+  name: MyString
+
+two:
+  x: 9.99
+  'y': 9.99
+  z: 9.99
+  numRays: 1
+  rotAz: 9.99
+  rotEl: 9.99
+  spl1m: 1
+  name: MyString

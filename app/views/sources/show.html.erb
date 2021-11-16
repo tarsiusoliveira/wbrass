@@ -1,0 +1,44 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>X:</strong>
+  <%= @source.x %>
+</p>
+
+<p>
+  <strong>Y:</strong>
+  <%= @source.y %>
+</p>
+
+<p>
+  <strong>Z:</strong>
+  <%= @source.z %>
+</p>
+
+<p>
+  <strong>Numrays:</strong>
+  <%= @source.numRays %>
+</p>
+
+<p>
+  <strong>Rotaz:</strong>
+  <%= @source.rotAz %>
+</p>
+
+<p>
+  <strong>Rotel:</strong>
+  <%= @source.rotEl %>
+</p>
+
+<p>
+  <strong>Spl1m:</strong>
+  <%= @source.spl1m %>
+</p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @source.name %>
+</p>
+
+<%= link_to 'Edit', edit_source_path(@source) %> |
+<%= link_to 'Back', sources_path %>
