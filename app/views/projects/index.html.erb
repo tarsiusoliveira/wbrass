@@ -43,7 +43,7 @@
           </h3>
           <h3>
               <ul>
-                <li>Temperature (C): <%= project.temperature %></li>
+                <!-- <li>Temperature (C): <%= project.temperature %></li>
                 <li>Pressure (atm): <%= project.pressure %></li>
                 <li>Humidity (%): <%= project.humidity %></li>
                 <li>Sample Rate (Hz): <%= project.sampleRate %></li>
@@ -56,7 +56,13 @@
                 <li>Save Late Rays: <%= project.saveLateRays %></li>
                 <li>Artificial Tail: <%= project.artificialTail %></li>
                 <li>Save DIffuse Rays: <%= project.saveDiffuseRays %></li>
-                <li>Auralization: <%= project.auralization %></li>
+                <li>Auralization: <%= project.auralization %></li> -->
+                <li>AutoCad File: <% if project.autocad_file.attached? %>
+                                    <%= link_to project.autocad_file.filename, project.autocad_file %>
+                                  <% else %>
+                                    <%= 'There is not such file' %>
+                                  <% end %>
+                </li>
             </ul>
           </h3>
         </td>

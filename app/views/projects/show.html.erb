@@ -90,7 +90,11 @@
 
 <p>
   <strong>AutoCad File Name:</strong>
-  <%= @project.autocad_file.filename %>
+  <% if @project.autocad_file.attached? %>
+    <%= link_to @project.autocad_file.filename, @project.autocad_file %>
+  <% else %>
+    <%= 'There is not such file' %>
+  <% end %>
 </p>
 
 <%= link_to 'Edit', edit_project_path(@project) %> |

@@ -12,22 +12,16 @@ class ProjectsController < ApplicationController
 
   # GET /projects/new
   def new
-    @project = Project.new
-    @project.temperature ||= 36.0
-    @project.pressure ||= 1
-    @project.humidity ||= 40.0
-    @project.sampleRate ||= 44100
-    @project.irDuration ||= 3.0
-    @project.maxReflections ||= 50
-    @project.energyDecay ||= -60
-    @project.numRays ||= 10000
-    @project.clusterOrder ||= 3
-    @project.diffuseProcessing ||= false
-    @project.saveLateRays ||= false
-    @project.artificialTail ||= true
-    @project.saveDiffuseRays ||= false
-    @project.auralization ||= false
-    @project.autocad_file.attach(params[:autocad_file])
+    @project = Project.new  temperature: 36.0,
+                            pressure: 1,
+                            humidity: 40.0,
+                            sampleRate: 44100,
+                            irDuration: 3.0,
+                            maxReflections: 50,
+                            energyDecay: -60,
+                            numRays: 10000,
+                            clusterOrder: 3,
+                            artificialTail: true
   end
 
   # GET /projects/1/edit
@@ -72,15 +66,15 @@ class ProjectsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_project
-      @project = Project.find(params[:id])
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_project
+    @project = Project.find(params[:id])
+  end
 
-    # Only allow a list of trusted parameters through.
-    def project_params
-      params.require(:project).permit(:temperature, :pressure, :humidity, :sampleRate,
-        :irDuration, :maxReflections, :energyDecay, :numRays, :clusterOrder, :diffuseProcessing,
-        :saveLateRays, :artificialTail, :saveDiffuseRays, :auralization, :autocad_file)
+  # Only allow a list of trusted parameters through.
+  def project_params
+    params.require(:project).permit(:temperature, :pressure, :humidity, :sampleRate,
+      :irDuration, :maxReflections, :energyDecay, :numRays, :clusterOrder, :diffuseProcessing,
+      :saveLateRays, :artificialTail, :saveDiffuseRays, :auralization, :autocad_file)
     end
-end
+  end

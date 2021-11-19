@@ -19,5 +19,5 @@ Project.create!(
   saveLateRays: false,
   artificialTail: true,
   saveDiffuseRays: false,
-  auralization: false
+  auralization: false,
 )
