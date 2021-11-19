@@ -2,12 +2,13 @@ class Project < ApplicationRecord
   has_one_attached :autocad_file
   serialize :dxf_layers, Hash
 
-  # after_create_commit :parse_autocad_file, if: ->{autocad_file.attached?}
-  #
-  # private
-  # def parse_autocad_file
-  #   require "./lib/tasks/dxf2ruby"
-  #   pp autocad_file
+  after_create_commit :parse_autocad_file, if: ->{autocad_file.attached?}
+
+   private
+   def parse_autocad_file
+     require "./lib/tasks/dxf2ruby"
+     pp "OH SHIT, HERE WE GO AGAIN!"
+     pp autocad_file
   #   # autocad_file.open do |file|
   #   file = autocad_file.open
   #     pp file
@@ -40,5 +41,5 @@ class Project < ApplicationRecord
   #     end
   #   end
   #   self.save!
-  # end
+   end
 end
