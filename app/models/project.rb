@@ -22,7 +22,7 @@ class Project < ApplicationRecord
   private
   def schedule_autocad_file_parse
     if self.autocad_file.attached?
-      DxfReaderJob.set(wait: 2.seconds).perform_later(self.id)
+      DxfReaderJob.set(wait: 3.seconds).perform_later(self.id)
     end
   end
 
