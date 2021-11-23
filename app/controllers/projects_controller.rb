@@ -57,6 +57,9 @@ class ProjectsController < ApplicationController
         format.json { render json: @project.errors, status: :unprocessable_entity }
       end
     end
+    if @project.autocad_file.attached?
+      DxfReaderJob.perform_later(@project) #@project.autocad_file
+    end
   end
 
   # DELETE /projects/1 or /projects/1.json

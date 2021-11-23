@@ -1,7 +1,6 @@
 class Project < ApplicationRecord
   has_one_attached :autocad_file
   serialize :dxf_layers, Hash
-  
 
   validate :acceptable_autocad_file
 
@@ -16,8 +15,8 @@ class Project < ApplicationRecord
     unless acceptable_type.include?(autocad_file.content_type)
       errors.add(:autocad_file, "must be a DXF file")
     end
-
   end
+end
 
 
 
@@ -80,4 +79,3 @@ class Project < ApplicationRecord
   #   end
   #   self.save!
    # end
-end
