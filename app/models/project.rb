@@ -1,14 +1,52 @@
 class Project < ApplicationRecord
   has_one_attached :autocad_file
   serialize :dxf_layers, Hash
+  
 
-  after_create_commit :parse_autocad_file, if: ->{autocad_file.attached?}
+  validate :acceptable_autocad_file
 
-   private
-   def parse_autocad_file
-     require "./lib/tasks/dxf2ruby"
-     pp "OH SHIT, HERE WE GO AGAIN!"
-     pp autocad_file
+  def acceptable_autocad_file
+    return unless autocad_file.attached?
+
+    unless autocad_file.byte_size <= 1.megabyte
+      errors.add(:autocad_file, "is to big")
+    end
+
+    acceptable_type = ["image/vnd.dxf"]
+    unless acceptable_type.include?(autocad_file.content_type)
+      errors.add(:autocad_file, "must be a DXF file")
+    end
+
+  end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  #after_create_commit :parse_autocad_file, if: ->{autocad_file.attached?}
+
+   # private
+   # def parse_autocad_file
+   #   require "./lib/tasks/dxf2ruby"
+   #   pp "OH SHIT, HERE WE GO AGAIN!"
+   #   pp autocad_file
   #   # autocad_file.open do |file|
   #   file = autocad_file.open
   #     pp file
@@ -41,5 +79,5 @@ class Project < ApplicationRecord
   #     end
   #   end
   #   self.save!
-   end
+   # end
 end
