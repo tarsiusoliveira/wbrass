@@ -2,11 +2,11 @@ class DxfReaderJob < ApplicationJob
   queue_as :projects
 
 
-  def perform(prj)
+  def perform(project_id)
     require "./lib/tasks/dxf2ruby"
-    pp "OH SHIT, HERE WE GO AGAIN!"
-    pp prj.autocad_file
-    dxf = JF::Dxf2Ruby.parse(prj.autocad_file.filename.to_s)
+
+    project = Project.find(project_id)
+    dxf = JF::Dxf2Ruby.parse(project.autocad_file.filename.to_s)
     group_by_layer = {}
     dxf['ENTITIES'].each do |entity|
       if entity[0] != 'POLYLINE'
@@ -35,10 +35,8 @@ class DxfReaderJob < ApplicationJob
       end
     end
 
-
+    project.update_columns(dxf_layers: group_by_layer)
     p "=" * 50
-    p "group_by_layer"
-    p "-" * 50
     pp group_by_layer.keys
     p "=" * 50
    end

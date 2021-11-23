@@ -97,5 +97,14 @@
   <% end %>
 </p>
 
+<p>
+  <strong>DXF_Layers:</strong>
+  <% if @project.dxf_layers.empty? %>
+    <strong> Processando arquivo DXF </strong>
+  <% else %>
+    <%= pp @project.dxf_layers.keys %>
+  <% end %>
+</p>
+
 <%= link_to 'Edit', edit_project_path(@project) %> |
 <%= link_to 'Back', projects_path %>
