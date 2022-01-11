@@ -5,6 +5,7 @@ class Project < ApplicationRecord
   validate :acceptable_autocad_file
 
   after_save :schedule_autocad_file_parse
+  has_many :sources
 
   def acceptable_autocad_file
     return unless autocad_file.attached?

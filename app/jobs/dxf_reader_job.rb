@@ -36,8 +36,5 @@ class DxfReaderJob < ApplicationJob
     end
 
     project.update_columns(dxf_layers: group_by_layer)
-    p "=" * 50
-    pp group_by_layer.keys
-    p "=" * 50
    end
 end
