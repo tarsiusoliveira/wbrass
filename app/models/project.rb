@@ -5,7 +5,8 @@ class Project < ApplicationRecord
   validate :acceptable_autocad_file
 
   after_save :schedule_autocad_file_parse
-  has_many :sources
+  has_many :positions
+  has_many :sources, through: :positions, source: :positionee, source_type: "Source"
 
   def acceptable_autocad_file
     return unless autocad_file.attached?
@@ -27,5 +28,8 @@ class Project < ApplicationRecord
     end
   end
 
+  def positionee_names()
+    positions.map{|p| p.positionee.name }
+  end
 
 end

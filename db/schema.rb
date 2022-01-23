@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_10_08_143759) do
+ActiveRecord::Schema.define(version: 2022_01_21_162721) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -41,6 +41,21 @@ ActiveRecord::Schema.define(version: 2021_10_08_143759) do
     t.bigint "blob_id", null: false
     t.string "variation_digest", null: false
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
+  end
+
+  create_table "positions", force: :cascade do |t|
+    t.decimal "x"
+    t.decimal "y"
+    t.decimal "z"
+    t.integer "shape"
+    t.string "name"
+    t.bigint "project_id", null: false
+    t.string "positionee_type", null: false
+    t.bigint "positionee_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["positionee_type", "positionee_id"], name: "index_positions_on_positionee"
+    t.index ["project_id"], name: "index_positions_on_project_id"
   end
 
   create_table "projects", force: :cascade do |t|
@@ -78,4 +93,5 @@ ActiveRecord::Schema.define(version: 2021_10_08_143759) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "positions", "projects"
 end

@@ -102,7 +102,17 @@
   <% if @project.dxf_layers.empty? %>
     <strong> Processando arquivo DXF </strong>
   <% else %>
-    <%= pp @project.dxf_layers.keys %>
+    <fieldset>
+      <legend>Layers:</legend>
+        <%= @project.dxf_layers.keys %>
+      <legend>This current project sources are:</legend>
+        <%= @project.sources.map &:name %>
+      <legend>Select the proper sources for this project:</legend>
+      <%= form_for :positionee do |f|%>
+        <%= f.select :name, options_for_select(@project.dxf_layers.keys),{},{ :multiple => true, :size => 4 }%>
+        <%= f.submit "Add Sources", :onclick => "positionee_names()"%>  
+      <% end %>
+    </fieldset>  
   <% end %>
 </p>
 

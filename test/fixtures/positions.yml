@@ -1,0 +1,19 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  x: 9.99
+  'y': 9.99
+  z: 9.99
+  shape: 1
+  project: one
+  positionee: one
+  positionee_type: Positionee
+
+two:
+  x: 9.99
+  'y': 9.99
+  z: 9.99
+  shape: 1
+  project: two
+  positionee: two
+  positionee_type: Positionee

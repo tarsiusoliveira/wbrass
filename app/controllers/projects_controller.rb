@@ -85,6 +85,6 @@ class ProjectsController < ApplicationController
   def project_params
     params.require(:project).permit(:temperature, :pressure, :humidity, :sampleRate,
       :irDuration, :maxReflections, :energyDecay, :numRays, :clusterOrder, :diffuseProcessing,
-      :saveLateRays, :artificialTail, :saveDiffuseRays, :auralization, :autocad_file)
+      :saveLateRays, :artificialTail, :saveDiffuseRays, :auralization, :autocad_file, positionee_names:[])
     end
   end
