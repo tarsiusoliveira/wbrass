@@ -108,9 +108,9 @@
       <legend>This current project sources are:</legend>
         <%= @project.sources.map &:name %>
       <legend>Select the proper sources for this project:</legend>
-      <%= form_for :positionee do |f|%>
-        <%= f.select :name, options_for_select(@project.dxf_layers.keys),{},{ :multiple => true, :size => 4 }%>
-        <%= f.submit "Add Sources", :onclick => "positionee_names()"%>  
+      <%= form_with model: @project do |f|%>
+      <%= f.select :positionee_names, options_for_select(@project.dxf_layers.keys, @project.positionee_names),{}, {:multiple => true, :size => 4} %>
+      <%= f.submit "Add Sources"%>  
       <% end %>
     </fieldset>  
   <% end %>

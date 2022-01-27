@@ -8,6 +8,10 @@ class Project < ApplicationRecord
   has_many :positions
   has_many :sources, through: :positions, source: :positionee, source_type: "Source"
 
+  attr_accessor :positionee_names
+
+  before_validation :associate_to_positions
+
   def acceptable_autocad_file
     return unless autocad_file.attached?
 
@@ -21,6 +25,10 @@ class Project < ApplicationRecord
     end
   end
 
+  def positionee_names
+    @positionee_names || sources.map{|s| s.name}
+  end
+
   private
   def schedule_autocad_file_parse
     if self.autocad_file.attached?
@@ -28,8 +36,12 @@ class Project < ApplicationRecord
     end
   end
 
-  def positionee_names()
-    positions.map{|p| p.positionee.name }
+
+  def associate_to_positions
+    batata = positionee_names.filter{|x| !x.empty?}
+    self.sources = batata.map do |name|
+      Source.find_or_create_by(name: name)
+    end
   end
 
 end
