@@ -109,12 +109,23 @@
         <%= @project.sources.map &:name %>
       <legend>This current project receivers are:</legend>
         <%= @project.receivers.map &:name %>
+      <legend>This current project plans are:</legend>
+        <%= @project.plans.map &:name %>
+        <br>
+        <br>
       <%= form_with model: @project do |f|%>
-      <legend>Select the proper sources for this project:</legend>
-      <%= f.select :positionee_source_names, options_for_select(@project.dxf_layers.keys, @project.positionee_source_names),{}, {:multiple => true, :size => 4} %>
-      <legend>Select the proper receivers for this project:</legend>
-      <%= f.select :positionee_receiver_names, options_for_select(@project.dxf_layers.keys, @project.positionee_receiver_names),{}, {:multiple => true, :size => 4} %>
-      <%# <%= f.select :positionee_plan_names, options_for_select(@project.dxf_layers.keys, @project.positionee_plan_names),{}, {:multiple => true, :size => 4} %>
+        <legend>Select the proper sources for this project:</legend>
+          <%= f.select :positionee_source_names, options_for_select(@project.dxf_layers.keys, @project.positionee_source_names),{}, {:multiple => true, :size => 4} %>
+          <br>
+          <br>
+        <legend>Select the proper receivers for this project:</legend>
+          <%= f.select :positionee_receiver_names, options_for_select(@project.dxf_layers.keys, @project.positionee_receiver_names),{}, {:multiple => true, :size => 4} %>
+          <br>
+          <br>
+        <legend>Select the proper plans for this project:</legend>
+          <%= f.select :positionee_plan_names, options_for_select(@project.dxf_layers.keys, @project.positionee_plan_names),{}, {:multiple => true, :size => 4} %>
+          <br>
+          <br>
       <%= f.submit "Add Layers"%>  
       <% end %>
     </fieldset>  

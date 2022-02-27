@@ -8,9 +8,12 @@ class Project < ApplicationRecord
   has_many :positions
   has_many :sources, through: :positions, source: :positionee, source_type: "Source"
   has_many :receivers, through: :positions, source: :positionee, source_type: "Receiver"
+  has_many :plans, through: :positions, source: :positionee, source_type: "Plan"
+
 
   attr_accessor :positionee_source_names
   attr_accessor :positionee_receiver_names
+  attr_accessor :positionee_plan_names
 
   before_validation :associate_to_positions
 
@@ -35,9 +38,9 @@ class Project < ApplicationRecord
     @positionee_receiver_names || receivers.map{|r| r.name}
   end
 
-  # def positionee_plan_names
-  #   @positionee_plan_names || plan.map{|s| s.name} 
-  # end
+  def positionee_plan_names
+    @positionee_plan_names || plans.map{|s| s.name} 
+  end
   
   private
   def schedule_autocad_file_parse
@@ -54,6 +57,10 @@ class Project < ApplicationRecord
 
       self.receivers = positionee_receiver_names.filter{|x| !x.empty?}.map do |name|
         Receiver.find_or_create_by(name: name)
+      end
+
+      self.plans = positionee_plan_names.filter{|x| !x.empty?}.map do |name|
+        Plan.find_or_create_by(name: name)
       end
   end
 
