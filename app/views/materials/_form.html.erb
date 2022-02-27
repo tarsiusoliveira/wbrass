@@ -1,0 +1,72 @@
+<%= form_with(model: material) do |form| %>
+  <% if material.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(material.errors.count, "error") %> prohibited this material from being saved:</h2>
+
+      <ul>
+        <% material.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :freq62hz %>
+    <%= form.text_field :freq62hz %>
+  </div>
+
+  <div class="field">
+    <%= form.label :freq125hz %>
+    <%= form.text_field :freq125hz %>
+  </div>
+
+  <div class="field">
+    <%= form.label :freq250hz %>
+    <%= form.text_field :freq250hz %>
+  </div>
+
+  <div class="field">
+    <%= form.label :freq500hz %>
+    <%= form.text_field :freq500hz %>
+  </div>
+
+  <div class="field">
+    <%= form.label :freq1k %>
+    <%= form.text_field :freq1k %>
+  </div>
+
+  <div class="field">
+    <%= form.label :freq2k %>
+    <%= form.text_field :freq2k %>
+  </div>
+
+  <div class="field">
+    <%= form.label :freq4k %>
+    <%= form.text_field :freq4k %>
+  </div>
+
+  <div class="field">
+    <%= form.label :freq8k %>
+    <%= form.text_field :freq8k %>
+  </div>
+
+  <div class="field">
+    <%= form.label :freq16k %>
+    <%= form.text_field :freq16k %>
+  </div>
+
+  <div class="field">
+    <%= form.label :scattering_coefficient %>
+    <%= form.text_field :scattering_coefficient %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :materials
   resources :plans
   resources :receivers
   resources :sources
@@ -9,6 +10,7 @@ Rails.application.routes.draw do
   require 'sidekiq/web'
 
   Rails.application.routes.draw do
+  resources :materials
   resources :plans
   resources :receivers
     mount Sidekiq::Web => '/sidekiq'

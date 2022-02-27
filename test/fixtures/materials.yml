@@ -1,0 +1,27 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  freq62hz: 9.99
+  freq125hz: 9.99
+  freq250hz: 9.99
+  freq500hz: 9.99
+  freq1k: 9.99
+  freq2k: 9.99
+  freq4k: 9.99
+  freq8k: 9.99
+  freq16k: 9.99
+  scattering_coefficient: 9.99
+
+two:
+  name: MyString
+  freq62hz: 9.99
+  freq125hz: 9.99
+  freq250hz: 9.99
+  freq500hz: 9.99
+  freq1k: 9.99
+  freq2k: 9.99
+  freq4k: 9.99
+  freq8k: 9.99
+  freq16k: 9.99
+  scattering_coefficient: 9.99
