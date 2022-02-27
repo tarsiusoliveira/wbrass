@@ -86,6 +86,6 @@ class ProjectsController < ApplicationController
     puts params
     params.require(:project).permit(:temperature, :pressure, :humidity, :sampleRate,
       :irDuration, :maxReflections, :energyDecay, :numRays, :clusterOrder, :diffuseProcessing,
-      :saveLateRays, :artificialTail, :saveDiffuseRays, :auralization, :autocad_file, positionee_names:[])
+      :saveLateRays, :artificialTail, :saveDiffuseRays, :auralization, :autocad_file, positionee_source_names:[],positionee_receiver_names:[])
     end
   end

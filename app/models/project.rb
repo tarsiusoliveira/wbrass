@@ -7,8 +7,10 @@ class Project < ApplicationRecord
   after_save :schedule_autocad_file_parse
   has_many :positions
   has_many :sources, through: :positions, source: :positionee, source_type: "Source"
+  has_many :receivers, through: :positions, source: :positionee, source_type: "Receiver"
 
-  attr_accessor :positionee_names
+  attr_accessor :positionee_source_names
+  attr_accessor :positionee_receiver_names
 
   before_validation :associate_to_positions
 
@@ -25,10 +27,18 @@ class Project < ApplicationRecord
     end
   end
 
-  def positionee_names
-    @positionee_names || sources.map{|s| s.name}
+  def positionee_source_names
+    @positionee_source_names || sources.map{|s| s.name}
   end
 
+  def positionee_receiver_names
+    @positionee_receiver_names || receivers.map{|r| r.name}
+  end
+
+  # def positionee_plan_names
+  #   @positionee_plan_names || plan.map{|s| s.name} 
+  # end
+  
   private
   def schedule_autocad_file_parse
     if self.autocad_file.attached?
@@ -38,10 +48,13 @@ class Project < ApplicationRecord
 
 
   def associate_to_positions
-    batata = positionee_names.filter{|x| !x.empty?}
-    self.sources = batata.map do |name|
-      Source.find_or_create_by(name: name)
-    end
+      self.sources = positionee_source_names.filter{|x| !x.empty?}.map do |name|
+        Source.find_or_create_by(name: name)
+      end
+
+      self.receivers = positionee_receiver_names.filter{|x| !x.empty?}.map do |name|
+        Receiver.find_or_create_by(name: name)
+      end
   end
 
 end
