@@ -15,10 +15,10 @@
 
 <body>
   <div class="navbar">
-    <a href="#home"><%= image_tag 'wbrass_logo.jpeg', alt: 'wBRASS', width:65, align:'top' %></a>
-    <a href="#projects">Projects</a>
-    <a href="#results">Results</a>
-    <a href="#sources">Sources</a>
+    <%= link_to (image_tag 'wbrass_logo.jpeg', alt: 'wBRASS', width:65, align:'top'),projects_path %>
+    <%= link_to "Projects", projects_path%>
+    <%= link_to "Receivers", receivers_path%>
+    <%= link_to "Sources", sources_path%>
   </div>
 
   <div class="main">
