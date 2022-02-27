@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :receivers
   resources :sources
   root 'projects#index', as: 'projects_index'
   resources :projects
@@ -7,6 +8,7 @@ Rails.application.routes.draw do
   require 'sidekiq/web'
 
   Rails.application.routes.draw do
+  resources :receivers
     mount Sidekiq::Web => '/sidekiq'
   end
 end

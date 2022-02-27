@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_01_21_162721) do
+ActiveRecord::Schema.define(version: 2022_02_27_155116) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -48,7 +48,6 @@ ActiveRecord::Schema.define(version: 2022_01_21_162721) do
     t.decimal "y"
     t.decimal "z"
     t.integer "shape"
-    t.string "name"
     t.bigint "project_id", null: false
     t.string "positionee_type", null: false
     t.bigint "positionee_id", null: false
@@ -76,6 +75,17 @@ ActiveRecord::Schema.define(version: 2022_01_21_162721) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.json "dxf_layers"
+  end
+
+  create_table "receivers", force: :cascade do |t|
+    t.decimal "x"
+    t.decimal "y"
+    t.decimal "z"
+    t.integer "reception_ray"
+    t.integer "rotation"
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "sources", force: :cascade do |t|

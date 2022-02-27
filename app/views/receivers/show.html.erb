@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>X:</strong>
+  <%= @receiver.x %>
+</p>
+
+<p>
+  <strong>Y:</strong>
+  <%= @receiver.y %>
+</p>
+
+<p>
+  <strong>Z:</strong>
+  <%= @receiver.z %>
+</p>
+
+<p>
+  <strong>Reception ray:</strong>
+  <%= @receiver.reception_ray %>
+</p>
+
+<p>
+  <strong>Rotation:</strong>
+  <%= @receiver.rotation %>
+</p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @receiver.name %>
+</p>
+
+<%= link_to 'Edit', edit_receiver_path(@receiver) %> |
+<%= link_to 'Back', receivers_path %>
