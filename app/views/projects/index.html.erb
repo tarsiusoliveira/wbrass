@@ -7,20 +7,6 @@
 <table>
   <thead>
     <tr>
-      <!-- <th>Temperature</th>
-      <th>Pressure</th>
-      <th>Humidity</th>
-      <th>Samplerate</th>
-      <th>Irduration</th>
-      <th>Maxreflections</th>
-      <th>Energydecay</th>
-      <th>Numrays</th>
-      <th>Clusterorder</th>
-      <th>Diffuseprocessing</th>
-      <th>Savelaterays</th>
-      <th>Artificialtail</th>
-      <th>Savediffuserays</th>
-      <th>Auralization</th></th> -->
       <h1>Projects</h1>
     </tr>
   </thead>
@@ -43,20 +29,6 @@
           </h3>
           <h3>
               <ul>
-                <!-- <li>Temperature (C): <%= project.temperature %></li>
-                <li>Pressure (atm): <%= project.pressure %></li>
-                <li>Humidity (%): <%= project.humidity %></li>
-                <li>Sample Rate (Hz): <%= project.sampleRate %></li>
-                <li>IR Duration (s): <%= project.irDuration %></li>
-                <li>Max. Reflections: <%= project.maxReflections %></li>
-                <li>Energy Decay (dB): <%= project.energyDecay %></li>
-                <li>Number od Rays: <%= project.numRays %></li>
-                <li>Cluster Order: <%= project.clusterOrder %></li>
-                <li>Diffuse Processing: <%= project.diffuseProcessing %></li>
-                <li>Save Late Rays: <%= project.saveLateRays %></li>
-                <li>Artificial Tail: <%= project.artificialTail %></li>
-                <li>Save DIffuse Rays: <%= project.saveDiffuseRays %></li>
-                <li>Auralization: <%= project.auralization %></li> -->
                 <li>AutoCad File: <% if project.autocad_file.attached? %>
                                     <%= link_to project.autocad_file.filename, project.autocad_file %>
                                   <% else %>

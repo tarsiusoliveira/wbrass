@@ -5,7 +5,7 @@ class Project < ApplicationRecord
   validate :acceptable_autocad_file
 
   after_save :schedule_autocad_file_parse
-  has_many :positions
+  has_many :positions, dependent: :delete_all
   has_many :sources, through: :positions, source: :positionee, source_type: "Source"
   has_many :receivers, through: :positions, source: :positionee, source_type: "Receiver"
   has_many :plans, through: :positions, source: :positionee, source_type: "Plan"
@@ -52,11 +52,13 @@ class Project < ApplicationRecord
 
   def associate_to_positions
       self.sources = positionee_source_names.filter{|x| !x.empty?}.map do |name|
-        Source.find_or_create_by(name: name)
+        Source.find_or_create_by(name: name, x: self.dxf_layers[name][0][:x], 
+          y: self.dxf_layers[name][0][:y], z: self.dxf_layers[name][0][:z])
       end
 
       self.receivers = positionee_receiver_names.filter{|x| !x.empty?}.map do |name|
-        Receiver.find_or_create_by(name: name)
+        Receiver.find_or_create_by(name: name, x: self.dxf_layers[name][0][:x], 
+          y: self.dxf_layers[name][0][:y], z: self.dxf_layers[name][0][:z])
       end
 
       self.plans = positionee_plan_names.filter{|x| !x.empty?}.map do |name|
