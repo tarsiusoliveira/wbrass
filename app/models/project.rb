@@ -51,19 +51,26 @@ class Project < ApplicationRecord
 
 
   def associate_to_positions
-      self.sources = positionee_source_names.filter{|x| !x.empty?}.map do |name|
-        Source.find_or_create_by(name: name, x: self.dxf_layers[name][0][:x], 
-          y: self.dxf_layers[name][0][:y], z: self.dxf_layers[name][0][:z])
+    positionee_source_names.filter{|x| !x.empty?}.map do |name|
+      self.sources = self.dxf_layers[name].map do |layer|
+      Source.find_or_create_by(name: (name+layer[:id]), x: layer[:x], 
+          y: layer[:y], z: layer[:z])
       end
+    end
 
-      self.receivers = positionee_receiver_names.filter{|x| !x.empty?}.map do |name|
-        Receiver.find_or_create_by(name: name, x: self.dxf_layers[name][0][:x], 
-          y: self.dxf_layers[name][0][:y], z: self.dxf_layers[name][0][:z])
+    positionee_receiver_names.filter{|x| !x.empty?}.map do |name|
+      self.receivers = self.dxf_layers[name].map do |layer|
+      Receiver.find_or_create_by(name: (name+layer[:id]), x: layer[:x], 
+          y: layer[:y], z: layer[:z])
       end
+    end
 
-      self.plans = positionee_plan_names.filter{|x| !x.empty?}.map do |name|
-        Plan.find_or_create_by(name: name)
+    positionee_plan_names.filter{|x| !x.empty?}.map do |name|
+      self.plans = self.dxf_layers[name].map do |layer|
+      Plan.find_or_create_by(name: (name)) # em planos não pode ser dessa forma... 
+      # temos que pensar melhor como manipular os planos. 
       end
+    end
   end
 
 end
