@@ -51,32 +51,32 @@ class Project < ApplicationRecord
 
 
   def associate_to_positions
-    positionee_source_names.filter{|x| !x.empty?}.map do |name|
-      self.sources = self.dxf_layers[name].map do |layer|
+    self.sources |= positionee_source_names.filter{|x| !x.empty?}.map do |name|
+      self.dxf_layers[name].map do |layer|
       Source.find_or_create_by(name: (name+layer[:id]), x: layer[:x], 
           y: layer[:y], z: layer[:z])
+      Source.find_by(name: (name+layer[:id]) )
       end
     end
 
-    positionee_receiver_names.filter{|x| !x.empty?}.map do |name|
-      self.receivers = self.dxf_layers[name].map do |layer|
+    self.receivers << positionee_receiver_names.filter{|x| !x.empty?}.map do |name|
+      self.dxf_layers[name].map do |layer|
       Receiver.find_or_create_by(name: (name+layer[:id]), x: layer[:x], 
           y: layer[:y], z: layer[:z])
       end
     end
-
-    positionee_plan_names.filter{|x| !x.empty?}.map do |name|
+    
+    self.plans |= positionee_plan_names.filter{|x| !x.empty?}.map do |name|
       plan_positions = []
       i = 0
-      self.plans = self.dxf_layers[name].map do |layer|
+      self.dxf_layers[name].map do |layer|
         plan_positions << layer[:x]
         plan_positions << layer[:y]
         plan_positions << layer[:z]
         i += 1
-        Plan.find_or_create_by(name: (name))
       end
-      Plan.find_by(name: (name)).update_columns(xyz: plan_positions, vertices: i)
+      Plan.find_or_create_by(name: (name)).update_columns(xyz: plan_positions, vertices: i)
+      Plan.find_by(name: name)
     end
   end
-
 end
