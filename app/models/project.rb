@@ -66,10 +66,16 @@ class Project < ApplicationRecord
     end
 
     positionee_plan_names.filter{|x| !x.empty?}.map do |name|
+      plan_positions = []
+      i = 0
       self.plans = self.dxf_layers[name].map do |layer|
-      Plan.find_or_create_by(name: (name)) # em planos não pode ser dessa forma... 
-      # temos que pensar melhor como manipular os planos. 
+        plan_positions << layer[:x]
+        plan_positions << layer[:y]
+        plan_positions << layer[:z]
+        i += 1
+        Plan.find_or_create_by(name: (name))
       end
+      Plan.find_by(name: (name)).update_columns(xyz: plan_positions, vertices: i)
     end
   end
 

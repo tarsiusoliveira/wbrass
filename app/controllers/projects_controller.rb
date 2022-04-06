@@ -36,17 +36,11 @@ class ProjectsController < ApplicationController
       if @project.save
         format.html { redirect_to @project, notice: "Project was successfully created." }
         format.json { render :show, status: :created, location: @project }
-        # if @project.autocad_file.attached?
-        #   DxfReaderJob.perform_later(@project)
-        # end
       else
         format.html { render :new, status: :unprocessable_entity }
         format.json { render json: @project.errors, status: :unprocessable_entity }
       end
     end
-    # if @project.autocad_file.attached?
-    #   DxfReaderJob.perform_later(@project)
-    # end
   end
 
   # PATCH/PUT /projects/1 or /projects/1.json
@@ -61,9 +55,6 @@ class ProjectsController < ApplicationController
         format.json { render json: @project.errors, status: :unprocessable_entity }
       end
     end
-    # if @project.autocad_file.attached?
-    #   DxfReaderJob.perform_later(@project) #@project.autocad_file
-    # end
   end
 
   # DELETE /projects/1 or /projects/1.json
