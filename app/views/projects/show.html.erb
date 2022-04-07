@@ -106,11 +106,17 @@
       <legend>Layers:</legend>
         <%= @project.dxf_layers.keys %>
       <legend>This current project sources are:</legend>
-        <%= @project.sources.map &:name %>
+        <% @project.sources.each do |source| %>
+          <%= link_to source.name, sources_path() %>
+        <% end %>
       <legend>This current project receivers are:</legend>
-        <%= @project.receivers.map &:name %>
+        <% @project.receivers.each do |receiver| %>
+          <%= link_to receiver.name, receivers_path() %>
+        <% end %>
       <legend>This current project plans are:</legend>
-        <%= @project.plans.map &:name %>
+        <% @project.plans.each do |plan| %>
+          <%= link_to plan.name, plans_path() %>
+        <% end %>        
         <br>
         <br>
       <%= form_with model: @project do |f|%>
@@ -132,5 +138,5 @@
   <% end %>
 </p>
 
-<%= link_to 'Edit', edit_project_path(@project) %> |
+<%= link_to 'Edit', edit_project_path(@project) %>
 <%= link_to 'Back', projects_path %>

@@ -53,17 +53,18 @@ class Project < ApplicationRecord
   def associate_to_positions
     self.sources |= positionee_source_names.filter{|x| !x.empty?}.map do |name|
       self.dxf_layers[name].map do |layer|
-      Source.find_or_create_by(name: (name+layer[:id]), x: layer[:x], 
-          y: layer[:y], z: layer[:z])
-      Source.find_by(name: (name+layer[:id]) )
+        Source.find_or_create_by(name: (name), x: layer[:x], 
+            y: layer[:y], z: layer[:z])
       end
+      Source.find_by(name: name)
     end
 
-    self.receivers << positionee_receiver_names.filter{|x| !x.empty?}.map do |name|
+    self.receivers |= positionee_receiver_names.filter{|x| !x.empty?}.map do |name|
       self.dxf_layers[name].map do |layer|
-      Receiver.find_or_create_by(name: (name+layer[:id]), x: layer[:x], 
-          y: layer[:y], z: layer[:z])
+        Receiver.find_or_create_by(name: (name), x: layer[:x], 
+            y: layer[:y], z: layer[:z])
       end
+      Receiver.find_by(name: name)
     end
     
     self.plans |= positionee_plan_names.filter{|x| !x.empty?}.map do |name|
