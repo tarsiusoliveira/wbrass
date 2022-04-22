@@ -22,8 +22,46 @@ Project.create!(
   auralization: false,
 )
 
-Material.create!([{
-    
-    }
+Material.create!([
+  {
+    name:                   "Rough concrete",
+    freq63hz:               0.02,
+    freq125hz:              0.02,
+    freq250hz:              0.03,
+    freq500hz:              0.03,
+    freq1k:                 0.03,
+    freq2k:                 0.04,
+    freq4k:                 0.07,
+    freq8k:                 0.07,
+    freq16k:                0.07,
+    scattering_coefficient: 5
+  },
+  {
+    name:                   "Standard brickwork",
+    freq63hz:               0.05,
+    freq125hz:              0.05,
+    freq250hz:              0.04,
+    freq500hz:              0.02,
+    freq1k:                 0.04,
+    freq2k:                 0.05,
+    freq4k:                 0.05,
+    freq8k:                 0.05,
+    freq16k:                0.05,
+    scattering_coefficient: 20
+  },
+  {
+    name:                   "4mm glass",
+    freq63hz:               0.30,
+    freq125hz:              0.30,
+    freq250hz:              0.20,
+    freq500hz:              0.10,
+    freq1k:                 0.07,
+    freq2k:                 0.05,
+    freq4k:                 0.02,
+    freq8k:                 0.02,
+    freq16k:                0.02,
+    scattering_coefficient: 21
+  }
+
   ]
 )
