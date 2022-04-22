@@ -1,5 +1,6 @@
 class PlansController < ApplicationController
   before_action :set_plan, only: %i[ show edit update destroy ]
+  before_action :set_materials, :edit
 
   # GET /plans or /plans.json
   def index
@@ -65,5 +66,9 @@ class PlansController < ApplicationController
     # Only allow a list of trusted parameters through.
     def plan_params
       params.require(:plan).permit(:vertices, :xyz, :name, :material)
+    end
+
+    def set_materials
+      @materials = Material.all 
     end
 end

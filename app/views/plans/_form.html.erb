@@ -28,7 +28,8 @@
 
   <div class="field">
     <%= form.label :material %>
-    <%= form.text_field :material %>
+    <%= form.select :material, options_from_collection_for_select(@materials, 'name', 'name') %>
+    
   </div>
 
   <div class="actions">
