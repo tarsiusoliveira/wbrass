@@ -17,7 +17,7 @@ class MaterialsControllerTest < ActionDispatch::IntegrationTest
 
   test "should create material" do
     assert_difference('Material.count') do
-      post materials_url, params: { material: { freq125hz: @material.freq125hz, freq16k: @material.freq16k, freq1k: @material.freq1k, freq250hz: @material.freq250hz, freq2k: @material.freq2k, freq4k: @material.freq4k, freq500hz: @material.freq500hz, freq62hz: @material.freq62hz, freq8k: @material.freq8k, name: @material.name, scattering_coefficient: @material.scattering_coefficient } }
+      post materials_url, params: { material: { freq125hz: @material.freq125hz, freq16k: @material.freq16k, freq1k: @material.freq1k, freq250hz: @material.freq250hz, freq2k: @material.freq2k, freq4k: @material.freq4k, freq500hz: @material.freq500hz, freq63hz: @material.freq63hz, freq8k: @material.freq8k, name: @material.name, scattering_coefficient: @material.scattering_coefficient } }
     end
 
     assert_redirected_to material_url(Material.last)
@@ -34,7 +34,7 @@ class MaterialsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update material" do
-    patch material_url(@material), params: { material: { freq125hz: @material.freq125hz, freq16k: @material.freq16k, freq1k: @material.freq1k, freq250hz: @material.freq250hz, freq2k: @material.freq2k, freq4k: @material.freq4k, freq500hz: @material.freq500hz, freq62hz: @material.freq62hz, freq8k: @material.freq8k, name: @material.name, scattering_coefficient: @material.scattering_coefficient } }
+    patch material_url(@material), params: { material: { freq125hz: @material.freq125hz, freq16k: @material.freq16k, freq1k: @material.freq1k, freq250hz: @material.freq250hz, freq2k: @material.freq2k, freq4k: @material.freq4k, freq500hz: @material.freq500hz, freq63hz: @material.freq63hz, freq8k: @material.freq8k, name: @material.name, scattering_coefficient: @material.scattering_coefficient } }
     assert_redirected_to material_url(@material)
   end
 

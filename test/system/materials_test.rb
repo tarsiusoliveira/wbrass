@@ -21,7 +21,7 @@ class MaterialsTest < ApplicationSystemTestCase
     fill_in "Freq2k", with: @material.freq2k
     fill_in "Freq4k", with: @material.freq4k
     fill_in "Freq500hz", with: @material.freq500hz
-    fill_in "Freq62hz", with: @material.freq62hz
+    fill_in "freq63hz", with: @material.freq63hz
     fill_in "Freq8k", with: @material.freq8k
     fill_in "Name", with: @material.name
     fill_in "Scattering coefficient", with: @material.scattering_coefficient
@@ -42,7 +42,7 @@ class MaterialsTest < ApplicationSystemTestCase
     fill_in "Freq2k", with: @material.freq2k
     fill_in "Freq4k", with: @material.freq4k
     fill_in "Freq500hz", with: @material.freq500hz
-    fill_in "Freq62hz", with: @material.freq62hz
+    fill_in "freq63hz", with: @material.freq63hz
     fill_in "Freq8k", with: @material.freq8k
     fill_in "Name", with: @material.name
     fill_in "Scattering coefficient", with: @material.scattering_coefficient

@@ -2,7 +2,7 @@
 
 one:
   name: MyString
-  freq62hz: 9.99
+  freq63hz: 9.99
   freq125hz: 9.99
   freq250hz: 9.99
   freq500hz: 9.99
@@ -15,7 +15,7 @@ one:
 
 two:
   name: MyString
-  freq62hz: 9.99
+  freq63hz: 9.99
   freq125hz: 9.99
   freq250hz: 9.99
   freq500hz: 9.99

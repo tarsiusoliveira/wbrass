@@ -2,7 +2,7 @@ class CreateMaterials < ActiveRecord::Migration[6.1]
   def change
     create_table :materials do |t|
       t.string :name
-      t.decimal :freq62hz
+      t.decimal :freq63hz
       t.decimal :freq125hz
       t.decimal :freq250hz
       t.decimal :freq500hz

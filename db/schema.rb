@@ -45,16 +45,16 @@ ActiveRecord::Schema.define(version: 2022_02_27_182615) do
 
   create_table "materials", force: :cascade do |t|
     t.string "name"
-    t.decimal "freq62hz"
-    t.decimal "freq125hz"
-    t.decimal "freq250hz"
-    t.decimal "freq500hz"
-    t.decimal "freq1k"
-    t.decimal "freq2k"
-    t.decimal "freq4k"
-    t.decimal "freq8k"
-    t.decimal "freq16k"
-    t.decimal "scattering_coefficient"
+    t.decimal "freq63hz", precision: 8, scale: 2
+    t.decimal "freq125hz", precision: 8, scale: 2
+    t.decimal "freq250hz", precision: 8, scale: 2
+    t.decimal "freq500hz", precision: 8, scale: 2
+    t.decimal "freq1k", precision: 8, scale: 2
+    t.decimal "freq2k", precision: 8, scale: 2
+    t.decimal "freq4k", precision: 8, scale: 2
+    t.decimal "freq8k", precision: 8, scale: 2
+    t.decimal "freq16k", precision: 8, scale: 2
+    t.decimal "scattering_coefficient", precision: 8, scale: 2
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

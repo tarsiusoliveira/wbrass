@@ -64,6 +64,6 @@ class MaterialsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def material_params
-      params.require(:material).permit(:name, :freq62hz, :freq125hz, :freq250hz, :freq500hz, :freq1k, :freq2k, :freq4k, :freq8k, :freq16k, :scattering_coefficient)
+      params.require(:material).permit(:name, :freq63hz, :freq125hz, :freq250hz, :freq500hz, :freq1k, :freq2k, :freq4k, :freq8k, :freq16k, :scattering_coefficient)
     end
 end

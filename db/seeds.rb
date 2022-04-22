@@ -21,3 +21,9 @@ Project.create!(
   saveDiffuseRays: false,
   auralization: false,
 )
+
+Material.create!([{
+    
+    }
+  ]
+)
