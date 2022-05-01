@@ -44,6 +44,7 @@
             <li><%= link_to 'Show', project %></li>
             <li><%= link_to 'Edit', edit_project_path(project) %></li>
             <li><%= link_to 'Destroy', project, method: :delete, data: { confirm: 'Are you sure?' } %></li>
+            <li><%= link_to "Generate txt file", :action => txtFileMaker(project) %></li>
           </ul>
         </td>
       </tr>

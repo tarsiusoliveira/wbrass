@@ -20,9 +20,9 @@ ambiente e tocar os arquivos de áudios resultantes da simulação (audibilizaç
     - [ X ] Leitura do arquivo dxf e obtenção dos dados das layers (planos, fontes e receptores)
     - [ X ] Interface para aquisição do arquivo dxf dentro de projects
     - [ X ] Criação do método de leitura do arquivo dxf e devolução dos objetos (layers: planos, fontes e receptores)
-    - [ ] Escolha dos layers para cada tipo (plano, fontes ou receptores)
-    - [ ] Escrita dos dados lidos nas tabelas definidas
-    - [ ] Escolha dos materiais (pré-definidos na tabela) de cada layer
+    - [ X ] Escolha dos layers para cada tipo (plano, fontes ou receptores)
+    - [ X ] Escrita dos dados lidos nas tabelas definidas
+    - [ X ] Escolha dos materiais (pré-definidos na tabela) de cada layer
     - [ ] Atribuição dos arquivos de audibilização para cada fonte (se houver)
     - [ ] Criação do txt (wBrass -> BRASS)
     - [ ] Envio dos arquivos para o servidor
