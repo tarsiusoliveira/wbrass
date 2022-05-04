@@ -71,9 +71,9 @@ class Project < ApplicationRecord
       plan_positions = []
       i = 0
       self.dxf_layers[name].map do |layer|
-        plan_positions << layer[:x]
-        plan_positions << layer[:y]
-        plan_positions << layer[:z]
+        plan_positions << layer[:x].round(2)
+        plan_positions << layer[:y].round(2)
+        plan_positions << layer[:z].round(2)
         i += 1
       end
       Plan.find_or_create_by(name: (name)).update_columns(xyz: plan_positions, vertices: i)

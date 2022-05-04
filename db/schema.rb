@@ -103,9 +103,9 @@ ActiveRecord::Schema.define(version: 2022_02_27_182615) do
   end
 
   create_table "receivers", force: :cascade do |t|
-    t.decimal "x"
-    t.decimal "y"
-    t.decimal "z"
+    t.decimal "x", precision: 8, scale: 2
+    t.decimal "y", precision: 8, scale: 2
+    t.decimal "z", precision: 8, scale: 2
     t.integer "reception_ray"
     t.integer "rotation"
     t.string "name"
