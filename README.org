@@ -25,9 +25,9 @@ ambiente e tocar os arquivos de áudios resultantes da simulação (audibilizaç
     - [ X ] Escolha dos materiais (pré-definidos na tabela) de cada layer
     - [ Iniciado ] Criação do txt (wBrass -> BRASS)
     - [ ] Criação das novas colunas nas tabelas de planos, fontes e receptores
-    - - [ ] Planos: Cor
-    - - [ ] Fontes: Direcionalidade (Daff ou interno), Potência (dB), Ganho/Atenuação por banda - 9 bandas (62,125,250,500,1k,2k,4k,8k,16k)
-    - - [ ] Receptores: Direcionalidade (Daff ou interno)
+        - [ ] Planos: Cor
+        - [ ] Fontes: Direcionalidade (Daff ou interno), Potência (dB), Ganho/Atenuação por banda - 9 bandas (62,125,250,500,1k,2k,4k,8k,16k)
+        - [ ] Receptores: Direcionalidade (Daff ou interno)
     - [ ] Envio dos arquivos para o servidor
     - [ ] Atribuição dos arquivos de audibilização para cada fonte (se houver)
 ** TODO [/] Comunicação com o programa do Professor (BRASS)
