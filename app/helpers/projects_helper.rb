@@ -44,7 +44,7 @@ module ProjectsHelper
             f.write("<LAYERS::RECEIVER>\n")
             if project.receivers.exists?
                 project.receivers.each do |r|
-                    f.write("#{r.name}\n")
+                    f.write("#{r.name} #{r.directionality}\n")
                 end
             end
             f.write("</LAYERS::RECEIVER>\n\n")

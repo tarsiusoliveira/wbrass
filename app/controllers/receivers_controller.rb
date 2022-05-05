@@ -64,6 +64,6 @@ class ReceiversController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def receiver_params
-      params.require(:receiver).permit(:x, :y, :z, :reception_ray, :rotation, :name)
+      params.require(:receiver).permit(:x, :y, :z, :reception_ray, :rotation, :name, :directionality)
     end
 end
