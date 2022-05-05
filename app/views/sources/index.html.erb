@@ -13,6 +13,17 @@
       <th>Rotel</th>
       <th>Spl1m</th>
       <th>Name</th>
+      <th>Direcionality</th>
+      <th>Potency</th>
+      <th>freq63hz</th>
+      <th>Freq125hz</th>
+      <th>Freq250hz</th>
+      <th>Freq500hz</th>
+      <th>Freq1k</th>
+      <th>Freq2k</th>
+      <th>Freq4k</th>
+      <th>Freq8k</th>
+      <th>Freq16k</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -28,6 +39,17 @@
         <td><%= source.rotEl %></td>
         <td><%= source.spl1m %></td>
         <td><%= source.name %></td>
+        <td><%= source.directionality%></td>
+        <td><%= source.potency%></td>
+        <td><%= source.freq63hz %></td>
+        <td><%= source.freq125hz %></td>
+        <td><%= source.freq250hz %></td>
+        <td><%= source.freq500hz %></td>
+        <td><%= source.freq1khz %></td>
+        <td><%= source.freq2khz %></td>
+        <td><%= source.freq4khz %></td>
+        <td><%= source.freq8khz %></td>
+        <td><%= source.freq16khz %></td>
         <td><%= link_to 'Show', source %></td>
         <td><%= link_to 'Edit', edit_source_path(source) %></td>
         <td><%= link_to 'Destroy', source, method: :delete, data: { confirm: 'Are you sure?' } %></td>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_05_04_234707) do
+ActiveRecord::Schema.define(version: 2022_05_05_014852) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -125,6 +125,17 @@ ActiveRecord::Schema.define(version: 2022_05_04_234707) do
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "directionality"
+    t.integer "potency"
+    t.decimal "freq63hz", precision: 8, scale: 2
+    t.decimal "freq125hz", precision: 8, scale: 2
+    t.decimal "freq250hz", precision: 8, scale: 2
+    t.decimal "freq500hz", precision: 8, scale: 2
+    t.decimal "freq1khz", precision: 8, scale: 2
+    t.decimal "freq2khz", precision: 8, scale: 2
+    t.decimal "freq4khz", precision: 8, scale: 2
+    t.decimal "freq8khz", precision: 8, scale: 2
+    t.decimal "freq16khz", precision: 8, scale: 2
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"

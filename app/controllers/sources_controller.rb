@@ -71,6 +71,7 @@ class SourcesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def source_params
-      params.require(:source).permit(:x, :y, :z, :numRays, :rotAz, :rotEl, :spl1m, :name)
+      params.require(:source).permit(:x, :y, :z, :numRays, :rotAz, :rotEl, :spl1m, :name, :directionality, :potency, 
+        :freq63hz, :freq125hz, :freq250hz, :freq500hz, :freq1khz, :freq2khz, :freq4khz, :freq8khz, :freq16khz)
     end
 end

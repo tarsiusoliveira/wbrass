@@ -26,7 +26,7 @@ module ProjectsHelper
             f.write("<LAYERS::SOURCE>\n")
             if project.sources.exists?
                 project.sources.each do |s|
-                    f.write("#{s.name}\n")
+                    f.write("#{s.name} #{s.directionality} #{s.potency} #{s.freq63hz} #{s.freq125hz} #{s.freq250hz} #{s.freq500hz} #{s.freq1khz} #{s.freq2khz} #{s.freq4khz} #{s.freq8khz} #{s.freq16khz} \n")
                 end
             end
             f.write("</LAYERS::SOURCE>\n\n")
@@ -62,8 +62,10 @@ module ProjectsHelper
             f.write("<MATERIALS>\n")
             if project.plans.exists?
                 project.plans.each do |p|
-                    m = Material.find_by(name: p.material)
-                    f.write("#{m.name} #{m.freq63hz} #{m.freq125hz} #{m.freq250hz} #{m.freq500hz} #{m.freq1k} #{m.freq2k} #{m.freq4k} #{m.freq8k} #{m.freq16k} #{m.scattering_coefficient}\n")
+                    if p.material != nil
+                        m = Material.find_by(name: p.material)
+                        f.write("#{m.name} #{m.freq63hz} #{m.freq125hz} #{m.freq250hz} #{m.freq500hz} #{m.freq1k} #{m.freq2k} #{m.freq4k} #{m.freq8k} #{m.freq16k} #{m.scattering_coefficient}\n")
+                    end
                 end
             end
             f.write("</MATERIALS>\n\n")
