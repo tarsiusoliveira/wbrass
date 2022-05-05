@@ -79,7 +79,13 @@ module ProjectsHelper
             f.write("<LAYERS::COLOR>\n")
             if project.plans.exists?
                 project.plans.each do |p|
-                    f.write("#{p.name}\n")
+                    colr = []
+                    if p.color != nil
+                        colr << p.color[1..2].hex
+                        colr << p.color[3..4].hex
+                        colr << p.color[5..6].hex
+                        f.write("#{p.name} #{colr[0]} #{colr[1]} #{colr[2]}\n")
+                    end
                 end
             end
             f.write("</LAYERS::COLOR>\n\n")

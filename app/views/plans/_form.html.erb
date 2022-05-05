@@ -29,7 +29,11 @@
   <div class="field">
     <%= form.label :material %>
     <%= form.select :material, options_from_collection_for_select(@materials, 'name', 'name') %>
-    
+  </div>
+
+  <div class="field">
+    <%= form.label :color %>
+    <%= form.color_field :color%>
   </div>
 
   <div class="actions">

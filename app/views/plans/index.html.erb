@@ -5,6 +5,7 @@
 <table>
   <thead>
     <tr>
+      <th>Color</th>
       <th>Vertices</th>
       <th>Xyz</th>
       <th>Name</th>
@@ -16,6 +17,7 @@
   <tbody>
     <% @plans.each do |plan| %>
       <tr>
+        <td><%= plan.color %></td>
         <td><%= plan.vertices %></td>
         <td><%= plan.xyz %></td>
         <td><%= plan.name %></td>
