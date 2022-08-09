@@ -13,8 +13,8 @@ class DxfReaderJob < ApplicationJob
         if entity[10] != nil
           case entity[0]
           when 'VERTEX'
-            group_by_layer[entity[8]+entity[330]] ||= []
-            group_by_layer[entity[8]+entity[330]] << {
+            group_by_layer[entity[8]] ||= []
+            group_by_layer[entity[8]] << {
               shape: entity[0],
               id: entity[5],
               x: entity[10],
