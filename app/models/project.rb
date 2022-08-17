@@ -70,13 +70,26 @@ class Project < ApplicationRecord
     self.plans |= positionee_plan_names.filter{|x| !x.empty?}.map do |name|
       plan_positions = []
       i = 0
+      @comparator = 0
       self.dxf_layers[name].map do |layer|
-        plan_positions << layer[:x].round(2)
-        plan_positions << layer[:y].round(2)
-        plan_positions << layer[:z].round(2)
-        i += 1
+        if (@comparator == 0 || @comparator == layer[:id])
+          @comparator = layer[:id]
+          plan_positions << layer[:x].round(2)
+          plan_positions << layer[:y].round(2)
+          plan_positions << layer[:z].round(2)
+          i += 1
+          Plan.find_or_create_by(name: name, id: layer[:id].hex).update_columns(xyz: plan_positions.join(" "), vertices: i)
+        else
+          @comparator = 0
+          plan_positions = []
+          i = 0
+          plan_positions << layer[:x].round(2)
+          plan_positions << layer[:y].round(2)
+          plan_positions << layer[:z].round(2)
+          i += 1
+          Plan.find_or_create_by(name: name, id: layer[:id].hex).update_columns(xyz: plan_positions.join(" "), vertices: i)
+       end
       end
-      Plan.find_or_create_by(name: (name)).update_columns(xyz: plan_positions, vertices: i)
       Plan.find_by(name: name)
     end
   end

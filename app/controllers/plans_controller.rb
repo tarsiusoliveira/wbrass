@@ -65,7 +65,7 @@ class PlansController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def plan_params
-      params.require(:plan).permit(:vertices, :xyz, :name, :material, :color)
+      params.require(:plan).permit(:vertices, :xyz, :name, :material, :color, :id)
     end
 
     def set_materials

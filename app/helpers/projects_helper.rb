@@ -95,7 +95,9 @@ module ProjectsHelper
             f.write("<PLANES>\n")
             if project.plans.exists?
                 project.plans.each do |p|
-                    f.write("#{p.vertices} #{p.xyz} #{p.xyz} #{p.name}\n")
+                    Plan.all.where(name: p.name).each do |pu|
+                        f.write("#{pu.vertices} #{pu.xyz} #{pu.name}\n")
+                    end
                 end
             end
             f.write("</PLANES>\n\n")
