@@ -8,21 +8,6 @@ class DxfReaderJob < ApplicationJob
     project = Project.find(project_id)
     dxf = JF::Dxf2Ruby.parse(project.autocad_file.filename.to_s)
     group_by_layer = {}
-    # dxf['ENTITIES'].each do |entity|
-    #   if entity[0] != 'POLYLINE'
-    #     if entity[10] != nil
-    #       case entity[0]
-          # when 'VERTEX'
-          #   group_by_layer[entity[8]] ||= []
-          #   group_by_layer[entity[8]] << {
-          #     shape: entity[0],
-          #     id: entity[5],
-          #     grouped_by: entity[330],
-          #     x: entity[10],
-          #     y: entity[20],
-          #     z: entity[30]
-          #   } #layer name
-          # when 'POINT'
     dxf['ENTITIES'].each do |entity|
       case entity[0]
       when 'POLYLINE'
