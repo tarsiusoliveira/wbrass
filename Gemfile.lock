@@ -207,6 +207,8 @@ GEM
     xpath (3.2.0)
       nokogiri (~> 1.8)
     zeitwerk (2.5.4)
+    zip-zip (0.3)
+      rubyzip (>= 1.0.0)
 
 PLATFORMS
   x86_64-linux
@@ -224,6 +226,7 @@ DEPENDENCIES
   rails (~> 6.1.4, >= 6.1.4.1)
   redis
   rexml
+  rubyzip
   sass-rails (>= 6)
   selenium-webdriver
   sidekiq
@@ -233,6 +236,7 @@ DEPENDENCIES
   web-console (>= 4.1.0)
   webdrivers
   webpacker (~> 5.0)
+  zip-zip (~> 0.3)
 
 RUBY VERSION
    ruby 3.0.2p107

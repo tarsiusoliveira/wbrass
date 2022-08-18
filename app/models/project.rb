@@ -1,10 +1,15 @@
 class Project < ApplicationRecord
   has_one_attached :autocad_file
+  has_one_attached :results_file
   serialize :dxf_layers, Hash
+  serialize :results, Hash
 
   validate :acceptable_autocad_file
+  validate :acceptable_results_file
 
   after_save :schedule_autocad_file_parse
+  after_save :read_results_file
+
   has_many :positions, dependent: :delete_all
   has_many :sources, through: :positions, source: :positionee, source_type: "Source"
   has_many :receivers, through: :positions, source: :positionee, source_type: "Receiver"
@@ -30,6 +35,19 @@ class Project < ApplicationRecord
     end
   end
 
+  def acceptable_results_file
+    return unless results_file.attached?
+
+    unless results_file.byte_size <= 1.megabyte
+      errors.add(:results_file, "is to big")
+    end
+
+    acceptable_type = ["application/zip"]
+    unless acceptable_type.include?(results_file.content_type)
+      errors.add(:results_file, "must be a ZIP file")
+    end
+  end
+
   def positionee_source_names
     @positionee_source_names || sources.map{|s| s.name}
   end
@@ -45,7 +63,28 @@ class Project < ApplicationRecord
   private
   def schedule_autocad_file_parse
     if self.autocad_file.attached?
-      DxfReaderJob.set(wait: 3.seconds).perform_later(self.id)
+      DxfReaderJob.set(wait: 1.seconds).perform_later(self.id)
+    end
+  end
+
+  def read_results_file
+    if self.results_file.attached?
+      require 'rubygems'
+      require 'zip'
+      @max_size = 2048**2 
+      Zip::File.open(self.results_file.filename.to_s) do |zip_file|
+        zip_file.each do |entry|
+          puts "Extracting #{entry.name}"
+          raise 'File too large when extracted' if entry.size > @max_size
+          entry.extract 
+          pp '================='
+          pp entry.name
+          pp entry.get_input_stream.read
+          pp '================='
+          
+          self.results = {name: entry.name, content: entry.get_input_stream.read}
+        end
+      end
     end
   end
 
