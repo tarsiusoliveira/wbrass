@@ -21,8 +21,9 @@ gem 'jbuilder', '~> 2.7'
 gem 'sidekiq'
 gem 'redis'
 gem 'mini_magick', '~>4.11.0'
-gem 'zip-zip', '~> 0.3'
-gem 'rubyzip'
+# gem 'zip-zip', '~> 0.3'
+gem 'rubyzip', '~> 2.3.2'
+# gem 'zipruby', '~> 0.3.6'
 
 gem 'rexml'
 # Use Redis adapter to run Action Cable in production

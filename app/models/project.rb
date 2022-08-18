@@ -1,6 +1,7 @@
 class Project < ApplicationRecord
   has_one_attached :autocad_file
   has_one_attached :results_file
+
   serialize :dxf_layers, Hash
   serialize :results, Hash
 
@@ -8,7 +9,7 @@ class Project < ApplicationRecord
   validate :acceptable_results_file
 
   after_save :schedule_autocad_file_parse
-  after_save :read_results_file
+  after_save :schedule_read_results_file
 
   has_many :positions, dependent: :delete_all
   has_many :sources, through: :positions, source: :positionee, source_type: "Source"
@@ -67,24 +68,9 @@ class Project < ApplicationRecord
     end
   end
 
-  def read_results_file
+  def schedule_read_results_file
     if self.results_file.attached?
-      require 'rubygems'
-      require 'zip'
-      @max_size = 2048**2 
-      Zip::File.open(self.results_file.filename.to_s) do |zip_file|
-        zip_file.each do |entry|
-          puts "Extracting #{entry.name}"
-          raise 'File too large when extracted' if entry.size > @max_size
-          entry.extract 
-          pp '================='
-          pp entry.name
-          pp entry.get_input_stream.read
-          pp '================='
-          
-          self.results = {name: entry.name, content: entry.get_input_stream.read}
-        end
-      end
+      ZipReaderJob.set(wait: 1.seconds).perform_later(self.id)
     end
   end
 

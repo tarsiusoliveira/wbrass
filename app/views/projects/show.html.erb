@@ -143,9 +143,12 @@
   <strong>Results:</strong>
   <% if @project.results_file.attached? %>
     <%= link_to @project.results_file.filename, @project.results_file %>
-    <fieldset>
-      <%= @project.results %>
-    </fieldset> 
+    <% if @project.results.empty? %>
+      <strong> Processando arquivo de resultados </strong>
+    <% else %>
+      <fieldset>
+        <%= @project.results.keys %>
+      </fieldset> 
   <% else %>
     <strong> There is not such file </strong> 
   <% end %>
