@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_08_18_040519) do
+ActiveRecord::Schema.define(version: 2022_08_19_142646) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -45,16 +45,16 @@ ActiveRecord::Schema.define(version: 2022_08_18_040519) do
 
   create_table "materials", force: :cascade do |t|
     t.string "name"
-    t.decimal "freq63hz", precision: 8, scale: 2
-    t.decimal "freq125hz", precision: 8, scale: 2
-    t.decimal "freq250hz", precision: 8, scale: 2
-    t.decimal "freq500hz", precision: 8, scale: 2
-    t.decimal "freq1k", precision: 8, scale: 2
-    t.decimal "freq2k", precision: 8, scale: 2
-    t.decimal "freq4k", precision: 8, scale: 2
-    t.decimal "freq8k", precision: 8, scale: 2
-    t.decimal "freq16k", precision: 8, scale: 2
-    t.decimal "scattering_coefficient", precision: 8, scale: 2
+    t.decimal "freq63hz"
+    t.decimal "freq125hz"
+    t.decimal "freq250hz"
+    t.decimal "freq500hz"
+    t.decimal "freq1k"
+    t.decimal "freq2k"
+    t.decimal "freq4k"
+    t.decimal "freq8k"
+    t.decimal "freq16k"
+    t.decimal "scattering_coefficient"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -74,6 +74,7 @@ ActiveRecord::Schema.define(version: 2022_08_18_040519) do
     t.decimal "y"
     t.decimal "z"
     t.integer "shape"
+    t.string "name"
     t.bigint "project_id", null: false
     t.string "positionee_type", null: false
     t.bigint "positionee_id", null: false
@@ -105,9 +106,9 @@ ActiveRecord::Schema.define(version: 2022_08_18_040519) do
   end
 
   create_table "receivers", force: :cascade do |t|
-    t.decimal "x", precision: 8, scale: 2
-    t.decimal "y", precision: 8, scale: 2
-    t.decimal "z", precision: 8, scale: 2
+    t.decimal "x"
+    t.decimal "y"
+    t.decimal "z"
     t.integer "reception_ray"
     t.integer "rotation"
     t.string "name"
@@ -129,15 +130,15 @@ ActiveRecord::Schema.define(version: 2022_08_18_040519) do
     t.datetime "updated_at", precision: 6, null: false
     t.string "directionality"
     t.integer "potency"
-    t.decimal "freq63hz", precision: 8, scale: 2
-    t.decimal "freq125hz", precision: 8, scale: 2
-    t.decimal "freq250hz", precision: 8, scale: 2
-    t.decimal "freq500hz", precision: 8, scale: 2
-    t.decimal "freq1khz", precision: 8, scale: 2
-    t.decimal "freq2khz", precision: 8, scale: 2
-    t.decimal "freq4khz", precision: 8, scale: 2
-    t.decimal "freq8khz", precision: 8, scale: 2
-    t.decimal "freq16khz", precision: 8, scale: 2
+    t.decimal "freq63hz"
+    t.decimal "freq125hz"
+    t.decimal "freq250hz"
+    t.decimal "freq500hz"
+    t.decimal "freq1khz"
+    t.decimal "freq2khz"
+    t.decimal "freq4khz"
+    t.decimal "freq8khz"
+    t.decimal "freq16khz"
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"

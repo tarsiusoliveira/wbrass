@@ -5,7 +5,7 @@ class CreatePositions < ActiveRecord::Migration[6.1]
       t.decimal :y
       t.decimal :z
       t.integer :shape
-      t.name :string
+      t.string :name
       t.references :project, null: false, foreign_key: true
       t.references :positionee, polymorphic: true, null: false
 

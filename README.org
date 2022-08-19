@@ -28,18 +28,18 @@ ambiente e tocar os arquivos de áudios resultantes da simulação (audibilizaç
         - [ X ] Planos: Cor
         - [ X ] Fontes: Direcionalidade (Daff ou interno), Potência (dB), Ganho/Atenuação por banda - 9 bandas (62,125,250,500,1k,2k,4k,8k,16k)
         - [ X ] Receptores: Direcionalidade (Daff ou interno)
-    - [ ] Planos devem ser associados a partir de 1 layer. O Layer deve ser visto sem o ID(330) e depois deve seguir a lógica dos receptores e das fontes
-    - [ ] Envio dos arquivos para o servidor
-    - [ ] Atribuição dos arquivos de audibilização para cada fonte (se houver). 
-** TODO [/] Comunicação com o programa do Professor (BRASS)
+    - [ X ] Planos devem ser associados a partir de 1 layer. O Layer deve ser visto sem o ID(330) e depois deve seguir a lógica dos receptores e das fontes
+    - [ ] UPDATE:NÃO SERÁ FEITO POR ENQUANTO -> Envio dos arquivos para o servidor
+    - [ ] UPDATE:NÃO SERÁ FEITO POR ENQUANTO -> Atribuição dos arquivos de audibilização para cada fonte (se houver). 
+** TODO [/] UPDATE:NÃO SERÁ FEITO POR ENQUANTO -> Comunicação com o programa do Professor (BRASS)
     - [ ] Colocar o programa num servidor
     - [ ] Configuração do programa para leitura dos arquivos de chegada
     - [ ] Envio do txt principal e arquivos de audibilização (caso hajam)
     - [ ] Execução do BRASS nos arquivos de entrada
     - [ ] Envio do txt de saída (BRASS -> wBrass) e arquivos de audibilização (caso hajam)
 ** TODO [/] Exibição dos gráficos de resposta em tempo/frequência
-    - [ ] Recepção dos arquivos do servidor
-    - [ ] Leitura dos dados e atribuição nas tabelas corretas
+    - [ X ] Recepção dos arquivos de resultados
+    - [ X ] Leitura dos dados e atribuição nas tabelas corretas
     - [ ] Interface de escolha das fontes e receptores a serem plotados
     - [ ] Plot do gráfico
     - [ ] Escolha das fontes e receptores a serem ouvidos (audibilização). Escutar os áudios somente por receptor.
