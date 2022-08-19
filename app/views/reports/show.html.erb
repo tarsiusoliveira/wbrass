@@ -7,7 +7,42 @@
 
 <p>
   <strong>Content:</strong>
-  <%= @report.content %>
+  <br>
+  <% if @report.filename.include? "PARAMS" %>
+    <table style="width:50%">
+      <% i = 0 %>
+      <% ln = 0 %>
+      <% @report.content.lines.each do |line| %>
+        <% if ln == 0 %>
+          <tr>
+            <% line.split.each do |l| %>
+              <th><%=l%></th>
+            <% end %>
+          </tr>
+          <% ln += 1 %>
+        <% else %>
+          <% if ln > 9 %>
+            <p>
+              <%= line %>
+            </p>
+            <% ln += 1 %>
+          <% else %>
+            <tr>
+            <% line.split.each do |l| %>
+              <td><%=l%></td>
+              <% i += 1 %>
+            <% end %>
+            <% if i%10 == 0 %>
+              </tr>
+            <% end %>
+          <% end %>      
+        <% ln += 1 %>
+        <% end %>
+      <% end %>
+    </table>
+  <% else %>
+    <h1>Invalid file</h1>
+  <% end %>
 </p>
 
 <p>
@@ -15,5 +50,4 @@
   <%= @report.filename %>
 </p>
 
-<%= link_to 'Edit', edit_report_path(@report) %> |
 <%= link_to 'Back', reports_path %>
