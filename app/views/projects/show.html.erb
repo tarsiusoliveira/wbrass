@@ -148,7 +148,7 @@
     <% else %>
       <fieldset>
         <% @project.results.keys.each do |result_file|%>
-          <%= link_to result_file, report_path(Report.find_by(filename:result_file)) %>
+          <%= link_to result_file, report_path(Report.find_by(filename:result_file, project_id: @project.id)) %>
         <% end %>
       </fieldset>
     <% end %>

@@ -39,7 +39,7 @@ class Project < ApplicationRecord
   def acceptable_results_file
     return unless results_file.attached?
 
-    unless results_file.byte_size <= 1.megabyte
+    unless results_file.byte_size <= 3.megabyte
       errors.add(:results_file, "is to big")
     end
 
@@ -70,7 +70,7 @@ class Project < ApplicationRecord
 
   def schedule_read_results_file
     if self.results_file.attached?
-      ZipReaderJob.set(wait: 1.seconds).perform_later(self.id)
+      ZipReaderJob.perform_later(self.id)
     end
   end
 
