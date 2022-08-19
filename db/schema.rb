@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_08_19_142646) do
+ActiveRecord::Schema.define(version: 2022_08_19_144018) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -117,6 +117,15 @@ ActiveRecord::Schema.define(version: 2022_08_19_142646) do
     t.string "directionality"
   end
 
+  create_table "reports", force: :cascade do |t|
+    t.bigint "project_id", null: false
+    t.json "content"
+    t.string "filename"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["project_id"], name: "index_reports_on_project_id"
+  end
+
   create_table "sources", force: :cascade do |t|
     t.decimal "x", precision: 8, scale: 2
     t.decimal "y", precision: 8, scale: 2
@@ -144,4 +153,5 @@ ActiveRecord::Schema.define(version: 2022_08_19_142646) do
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "positions", "projects"
+  add_foreign_key "reports", "projects"
 end

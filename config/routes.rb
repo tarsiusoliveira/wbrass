@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :reports
   resources :materials
   resources :plans
   resources :receivers
@@ -10,6 +11,7 @@ Rails.application.routes.draw do
   require 'sidekiq/web'
 
   Rails.application.routes.draw do
+  resources :reports
   resources :materials
   resources :plans
   resources :receivers

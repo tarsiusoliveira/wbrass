@@ -22,5 +22,9 @@ class ZipReaderJob < ApplicationJob
       }
     }
     project.update_columns(results: file_content)
+
+    project.results.each do |name, content|
+      Report.find_or_create_by(filename:name, project_id: project_id).update_columns(content:content[0].values.first)
+    end
   end
 end
