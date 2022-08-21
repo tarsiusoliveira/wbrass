@@ -1,5 +1,5 @@
 class ProjectsController < ApplicationController
-  before_action :set_project, only: %i[ show edit update destroy ]
+  before_action :set_project, only: %i[ show edit update destroy]
 
   # GET /projects or /projects.json
   def index
@@ -66,6 +66,10 @@ class ProjectsController < ApplicationController
     end
   end
 
+  def download
+    send_file("#{Rails.root}/public/Project_#{params[:file_id]}", filename: "Project_#{params[:file_id]}.txt")
+  end
+
   private
   # Use callbacks to share common setup or constraints between actions.
   def set_project
@@ -80,4 +84,5 @@ class ProjectsController < ApplicationController
       :saveLateRays, :artificialTail, :saveDiffuseRays, :auralization, :autocad_file, :results_file, 
       positionee_source_names:[],positionee_receiver_names:[], positionee_plan_names:[])
     end
+
   end

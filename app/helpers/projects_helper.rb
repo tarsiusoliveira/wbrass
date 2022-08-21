@@ -3,7 +3,7 @@ module ProjectsHelper
     def txtFileMaker(project)
 
         filename = "Project_#{project.id}"
-        File.open(filename, File::WRONLY|File::CREAT) do |f|
+        File.open("#{Rails.root}/public/#{filename}", File::WRONLY|File::CREAT) do |f|
             f.write("<ENVIRONMENT>\n")
             f.write("TEMPERATURE =          #{project.temperature}\n")
             f.write("PRESSURE =             #{project.pressure}\n")
