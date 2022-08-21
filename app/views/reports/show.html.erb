@@ -1,4 +1,5 @@
 <p id="notice"><%= notice %></p>
+<% require 'gchart' %>
 
 <p>
   <strong>Project:</strong>
@@ -41,35 +42,25 @@
       <% end %>
     </table>
   <% elsif  @report.filename.start_with?("S00")%>
+    <% @data_n = [] %>
 
-    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-       <div id="chart_div" style="width: 100%; height: 500px;"></div>
-    <script type="text/javascript">
-      google.charts.load('current', {'packages':['corechart']});
-      google.charts.setOnLoadCallback(drawChart);
+    <% @report.content.split().each do |c| %>
+      <% @data_n << c.to_f %>     
+    <% end %>
 
-      var filename = '<%= @report.filename %>'
 
-      function drawChart() {
-        var data = google.visualization.arrayToDataTable([
-          ['Year', 'Sales', 'Expenses'],
-          ['2013',  1000,      400],
-          ['2014',  1170,      460],
-          ['2015',  660,       1120],
-          ['2016',  1030,      540]
-        ]);
+    <br>
+    
+    <%= @data_n.count %>
 
-        var options = {
-          title: filename,
-          hAxis: {title: 'Time',  titleTextStyle: {color: '#333'}},
-          vAxis: {minValue: 0}
-        };
+    <% samp_div = 100 %>
+    
+    <% samples = @data_n.each_slice(samp_div).map(&:first) %>
 
-        var chart = new google.visualization.AreaChart(document.getElementById('chart_div'));
-        chart.draw(data, options);
-      }
-    </script>
-    <%= @report.content.lines.first.split() %>
+    <%= render "line_chart", rows: samples.each_with_index.map{ |e, i| [i*samp_div/44100.0 , e] } %>
+
+    <div id="chart_div" style="width: 100%; height: 500px;"></div>
+    
   <% else %>
     <h1>Invalid file</h1>
   <% end %>

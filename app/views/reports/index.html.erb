@@ -16,7 +16,6 @@
     <% @reports.each do |report| %>
       <tr>
         <td><%= report.project_id %></td>
-        <td><%= report.content %></td>
         <td><%= report.filename %></td>
         <td><%= link_to 'Show', report %></td>
         <td><%= link_to 'Edit', edit_report_path(report) %></td>
